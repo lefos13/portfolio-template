@@ -1,0 +1,140 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+
+const pageTitle = 'Share the Ride Backend';
+const pageDescription = 'Portfolio snapshot of the Share the Ride carpooling platform backend.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={pageTitle} description={pageDescription} />
+	</head>
+	<body>
+		<Header />
+		<main class="page">
+			<section class="hero">
+				<p class="eyebrow">Project Spotlight</p>
+				<h1>{pageTitle}</h1>
+				<p class="lead">
+					Share is the production-ready Node.js and Express service behind the “Share the Ride” carpooling
+					platform, delivering secure REST and WebSocket experiences for riders and drivers.
+				</p>
+			</section>
+
+			<section class="content">
+				<h2>What I Built</h2>
+				<p>
+					I designed and implemented a layered backend that keeps the platform reliable and responsive.
+					It orchestrates authentication, ride workflows, chat, notifications, and scheduled maintenance jobs
+					while staying adaptable to feature requests from product and mobile teams.
+				</p>
+
+				<h3>Highlights</h3>
+				<ul>
+					<li>JWT-secured APIs covering posts, interests, reviews, and rider onboarding.</li>
+					<li>Real-time Socket.IO messaging with optional AES encryption and Firebase fallback alerts.</li>
+					<li>Daily jobs that archive stale posts, refresh ride statistics, and prune expired conversations.</li>
+				</ul>
+
+				<h3>Architecture Glimpse</h3>
+				<p>
+					The service follows a clear separation of concerns: Express routers feed thin controllers, business
+					logic lives in domain services, and Sequelize modules handle data access for MySQL. Shared utilities
+					cover localization, notifications, and encryption so each feature team has consistent building blocks.
+				</p>
+
+				<h3>Stack at a Glance</h3>
+				<div class="stack-grid">
+					<div>
+						<h4>Core</h4>
+						<p>Node.js, Express 4, Socket.IO, Sequelize, MySQL</p>
+					</div>
+					<div>
+						<h4>Messaging & Auth</h4>
+						<p>JWT, Firebase Cloud Messaging, Redis (optional), Nodemailer</p>
+					</div>
+					<div>
+						<h4>Operational</h4>
+						<p>node-schedule jobs, Docker-ready configuration, REST client collections</p>
+					</div>
+				</div>
+
+				<h3>Outcome</h3>
+				<p>
+					Share has supported multi-language trip planning across web and mobile clients since launch. The
+					backend scales comfortably on Node 16+, keeps ride data fresh with automated pruning, and provides a
+					single source of truth for notifications and chat history.
+				</p>
+
+				<p class="cta">
+					Interested in the technical deep dive or API coverage? Let’s chat about the architecture decisions
+					and how they can translate to your next mobility project.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.page {
+		margin: 0 auto;
+		max-width: 960px;
+		padding: 3rem 1.5rem 4rem;
+	}
+
+	.hero {
+		margin-bottom: 2.5rem;
+	}
+
+	.eyebrow {
+		color: var(--accent, #4b63ff);
+		font-size: 0.9rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.lead {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		margin-top: 1rem;
+		max-width: 48ch;
+	}
+
+	.content h2,
+	.content h3,
+	.content h4 {
+		margin-top: 2rem;
+	}
+
+	.content ul {
+		margin: 1rem 0 1.5rem;
+		padding-left: 1.2rem;
+	}
+
+	.stack-grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	@media (min-width: 720px) {
+		.stack-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.stack-grid h4 {
+		margin-bottom: 0.4rem;
+	}
+
+	.cta {
+		border-left: 3px solid var(--accent, #4b63ff);
+		margin-top: 2.5rem;
+		padding-left: 1rem;
+	}
+</style>

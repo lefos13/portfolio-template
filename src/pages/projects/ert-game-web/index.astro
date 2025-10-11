@@ -1,0 +1,159 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+
+const pageTitle = 'ERT Game Web';
+const pageDescription = 'A multiplayer game application showcasing full-stack development with Express.js backend and Vue.js frontend.';
+const repoUrl = 'https://github.com/lefos13/ert-game-web';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle} description={pageDescription} />
+  </head>
+  <body>
+    <Header />
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Project Spotlight</p>
+        <h1>{pageTitle}</h1>
+        <p class="lead">
+          A real-time multiplayer game platform where players submit answers, vote on responses, and 
+          compete for points. Built with Express.js, Vue 3, TypeScript, and featuring comprehensive 
+          admin controls and session management.
+        </p>
+      </section>
+
+      <section class="content">
+        <h2>What I Built</h2>
+        <p>
+          ERT Game is a complete full-stack application that demonstrates modern web development practices. 
+          The platform supports multiple players simultaneously, real-time game state management, and provides 
+          both player and administrator interfaces with distinct workflows.
+        </p>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li>Real-time multiplayer gameplay with round-based question-answer mechanics.</li>
+          <li>Dual-interface design: streamlined player view and comprehensive admin dashboard.</li>
+          <li>Session management with voting system, point tracking, and game history exports.</li>
+          <li>Automated installation scripts for Windows (PowerShell) and Linux/macOS (Bash).</li>
+          <li>RESTful API with health checks, CORS configuration, and proper error handling.</li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+        <p>
+          The backend runs on Express.js with JSON file-based persistence for session data and round status. 
+          The Vue 3 frontend leverages TypeScript, Pinia state management, and modern Sass modules for styling. 
+          Component organization follows domain-driven principles, separating player, admin, and shared UI elements.
+        </p>
+
+        <h3>Stack at a Glance</h3>
+        <div class="stack-grid">
+          <div>
+            <h4>Backend</h4>
+            <p>Node.js, Express, RESTful APIs, JSON persistence</p>
+          </div>
+          <div>
+            <h4>Frontend</h4>
+            <p>Vue 3, TypeScript, Vite, Pinia, Sass modules</p>
+          </div>
+          <div>
+            <h4>DevOps</h4>
+            <p>Automated installers, environment detection, health checks</p>
+          </div>
+        </div>
+
+        <h3>API Highlights</h3>
+        <p>
+          The server exposes comprehensive endpoints for session management, round status tracking, and player 
+          operations including joining, answering, voting, and point updates. All routes return consistent JSON 
+          responses with proper HTTP status codes.
+        </p>
+
+        <h3>Outcome</h3>
+        <p>
+          The application has been deployed and tested across different environments. The installer scripts 
+          detect IP addresses automatically and configure both server and client for immediate use. The 
+          architecture scales comfortably for local network gameplay and supports export functionality for 
+          game analytics.
+        </p>
+
+        <p class="cta">
+          Explore the repository, check out the component architecture, or run the game locally:
+          <a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .hero {
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    color: var(--accent, #4b63ff);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 48ch;
+  }
+
+  .content h2,
+  .content h3 {
+    margin-top: 2rem;
+  }
+
+  .content ul {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.2rem;
+  }
+
+  .stack-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .stack-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .stack-grid > div {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .stack-grid h4 {
+    margin-bottom: 0.4rem;
+    color: var(--accent, #4b63ff);
+  }
+
+  .cta {
+    border-left: 3px solid var(--accent, #4b63ff);
+    margin-top: 2.5rem;
+    padding-left: 1rem;
+  }
+</style>

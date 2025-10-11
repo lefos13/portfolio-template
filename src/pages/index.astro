@@ -12,38 +12,408 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		<main class="home">
+			<section class="hero">
+				<div class="hero-content">
+					<div class="avatar-container">
+						<img src="/images/avatar.jpg" alt="Lefteris Evangelinos" class="avatar" />
+					</div>
+					<h1 class="name">Lefteris Evangelinos</h1>
+					<p class="tagline">Full-Stack Developer & Software Engineer</p>
+					<p class="bio">
+						Building scalable backend systems, real-time applications, and automation tools. 
+						Passionate about clean architecture, modern web technologies, and solving complex problems 
+						with elegant code.
+					</p>
+					<div class="cta-buttons">
+						<a href="/projects/share-the-ride" class="btn btn-primary">View Projects</a>
+						<a href="https://www.linkedin.com/in/lefteris-evangelinos-0370871b9/" 
+						   target="_blank" 
+						   rel="noopener" 
+						   class="btn btn-secondary">LinkedIn Profile</a>
+						<a href="https://github.com/lefos13" 
+						   target="_blank" 
+						   rel="noopener" 
+						   class="btn btn-secondary">GitHub</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="expertise">
+				<h2>Technical Expertise</h2>
+				<div class="skills-grid">
+					<div class="skill-category">
+						<h3>Backend Development</h3>
+						<ul>
+							<li>Node.js & Express</li>
+							<li>REST & WebSocket APIs</li>
+							<li>MySQL & Sequelize ORM</li>
+							<li>JWT Authentication</li>
+							<li>Real-time Systems (Socket.IO)</li>
+						</ul>
+					</div>
+					<div class="skill-category">
+						<h3>DevOps & Tools</h3>
+						<ul>
+							<li>Git & Version Control</li>
+							<li>Redis Caching</li>
+							<li>Firebase Cloud Messaging</li>
+							<li>Scheduled Jobs & Automation</li>
+							<li>Docker & Deployment</li>
+						</ul>
+					</div>
+					<div class="skill-category">
+						<h3>Languages & Frameworks</h3>
+						<ul>
+							<li>JavaScript/Node.js</li>
+							<li>Python</li>
+							<li>Astro & Modern Web</li>
+							<li>Vue.js</li>
+							<li>SQL & Database Design</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="featured-projects">
+				<h2>Featured Projects</h2>
+				<div class="projects-grid">
+					<article class="project-card">
+						<h3>Share the Ride</h3>
+						<p class="project-description">
+							Production-ready carpooling platform backend with JWT authentication, real-time chat, 
+							notifications, and scheduled maintenance jobs. Built with Node.js, Express, and Socket.IO.
+						</p>
+						<div class="project-tags">
+							<span class="tag">Node.js</span>
+							<span class="tag">Express</span>
+							<span class="tag">Socket.IO</span>
+							<span class="tag">MySQL</span>
+						</div>
+						<a href="/projects/share-the-ride" class="project-link">Learn More →</a>
+					</article>
+					<article class="project-card">
+						<h3>ERT Game Web</h3>
+						<p class="project-description">
+							Real-time multiplayer game platform with Express.js backend and Vue 3 frontend. Features 
+							round-based gameplay, voting mechanics, admin dashboard, and comprehensive session management.
+						</p>
+						<div class="project-tags">
+							<span class="tag">Vue 3</span>
+							<span class="tag">TypeScript</span>
+							<span class="tag">Express</span>
+							<span class="tag">Real-time</span>
+						</div>
+						<a href="/projects/ert-game-web" class="project-link">Learn More →</a>
+					</article>
+					<article class="project-card">
+						<h3>Python Random Scripts</h3>
+						<p class="project-description">
+							Collection of automation utilities and data-wrangling tools showcasing Python best practices, 
+							CLI patterns, and practical problem-solving approaches.
+						</p>
+						<div class="project-tags">
+							<span class="tag">Python</span>
+							<span class="tag">Automation</span>
+							<span class="tag">CLI Tools</span>
+							<span class="tag">Data Processing</span>
+						</div>
+						<a href="/projects/python-random-scripts" class="project-link">Learn More →</a>
+					</article>
+				</div>
+			</section>
+
+			<section class="contact-cta">
+				<h2>Let's Build Something Together</h2>
+				<p>
+					I'm always interested in hearing about new projects and opportunities. 
+					Whether you have a question or just want to say hi, feel free to reach out.
+				</p>
+				<a href="/about" class="btn btn-primary">Get in Touch</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.home {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	/* Hero Section */
+	.hero {
+		padding: 4rem 0 5rem;
+		text-align: center;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.avatar-container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+	}
+
+	.avatar {
+		width: 180px;
+		height: 180px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 4px solid var(--accent, #4b63ff);
+		box-shadow: 0 8px 24px rgba(75, 99, 255, 0.2);
+		transition: all 0.3s ease;
+	}
+
+	.avatar:hover {
+		transform: scale(1.05);
+		box-shadow: 0 12px 32px rgba(75, 99, 255, 0.3);
+	}
+
+	.name {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.tagline {
+		font-size: 1.5rem;
+		color: #555;
+		margin-bottom: 1.5rem;
+		font-weight: 500;
+	}
+
+	.bio {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: #666;
+		margin-bottom: 2.5rem;
+		max-width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 0.9rem 1.8rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		display: inline-block;
+	}
+
+	.btn-primary {
+		background: var(--accent, #4b63ff);
+		color: white;
+	}
+
+	.btn-primary:hover {
+		background: #3a4fd9;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(75, 99, 255, 0.3);
+	}
+
+	.btn-secondary {
+		background: white;
+		color: var(--accent, #4b63ff);
+		border: 2px solid var(--accent, #4b63ff);
+	}
+
+	.btn-secondary:hover {
+		background: var(--accent, #4b63ff);
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	/* Expertise Section */
+	.expertise {
+		padding: 4rem 0;
+		background: #f8f9fa;
+		margin: 0 -1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.expertise h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.skill-category {
+		background: white;
+		padding: 2rem;
+		border-radius: 0.75rem;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	}
+
+	.skill-category h3 {
+		color: var(--accent, #4b63ff);
+		margin-bottom: 1rem;
+		font-size: 1.3rem;
+	}
+
+	.skill-category ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.skill-category li {
+		padding: 0.5rem 0;
+		color: #555;
+		border-bottom: 1px solid #eee;
+	}
+
+	.skill-category li:last-child {
+		border-bottom: none;
+	}
+
+	/* Featured Projects */
+	.featured-projects {
+		padding: 4rem 0;
+	}
+
+	.featured-projects h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.project-card {
+		background: white;
+		border: 1px solid #e0e0e0;
+		border-radius: 0.75rem;
+		padding: 2rem;
+		transition: all 0.3s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+		border-color: var(--accent, #4b63ff);
+	}
+
+	.project-card h3 {
+		margin-bottom: 1rem;
+		color: #333;
+		font-size: 1.5rem;
+	}
+
+	.project-description {
+		color: #666;
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.tag {
+		background: #e8eeff;
+		color: var(--accent, #4b63ff);
+		padding: 0.3rem 0.8rem;
+		border-radius: 1rem;
+		font-size: 0.85rem;
+		font-weight: 500;
+	}
+
+	.project-link {
+		color: var(--accent, #4b63ff);
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.project-link:hover {
+		color: #3a4fd9;
+		text-decoration: underline;
+	}
+
+	/* Contact CTA */
+	.contact-cta {
+		padding: 4rem 0 5rem;
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.contact-cta h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.contact-cta p {
+		font-size: 1.1rem;
+		color: #666;
+		line-height: 1.8;
+		margin-bottom: 2rem;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.avatar {
+			width: 150px;
+			height: 150px;
+		}
+
+		.name {
+			font-size: 2.5rem;
+		}
+
+		.tagline {
+			font-size: 1.2rem;
+		}
+
+		.bio {
+			font-size: 1rem;
+		}
+
+		.expertise h2,
+		.featured-projects h2,
+		.contact-cta h2 {
+			font-size: 2rem;
+		}
+
+		.skills-grid,
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

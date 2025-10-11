@@ -10,6 +10,14 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<div class="dropdown">
+				<span class="dropdown-label">Projects ▾</span>
+				<div class="dropdown-content">
+					<HeaderLink href="/projects/share-the-ride">Share the Ride</HeaderLink>
+					<HeaderLink href="/projects/ert-game-web">ERT Game Web</HeaderLink>
+					<HeaderLink href="/projects/python-random-scripts">Python Scripts</HeaderLink>
+				</div>
+			</div>
 		</div>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -42,6 +50,47 @@ import HeaderLink from './HeaderLink.astro';
 		</div>
 	</nav>
 </header>
+<style>
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	.dropdown-label {
+		cursor: pointer;
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		font-weight: 500;
+		user-select: none;
+	}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background: white;
+		min-width: 180px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		z-index: 10;
+		margin-top: 0.2em;
+		border-radius: 0.25em;
+		padding: 0.5em 0;
+	}
+	.dropdown:hover .dropdown-content,
+	.dropdown:focus-within .dropdown-content {
+		display: block;
+	}
+	.dropdown-content a {
+		display: block;
+		padding: 0.7em 1.2em;
+		color: var(--black);
+		text-decoration: none;
+		border-bottom: none;
+		font-size: 1em;
+	}
+	.dropdown-content a:hover {
+		background: #f5f7fa;
+		color: var(--accent);
+	}
+</style>
 <style>
 	header {
 		margin: 0;

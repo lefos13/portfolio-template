@@ -1,0 +1,102 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+
+const pageTitle = 'Python Random Scripts';
+const pageDescription = 'A portfolio snapshot highlighting a grab bag of automation and scripting experiments in Python.';
+const repoUrl = 'https://github.com/lefos13/python-random-scripts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle} description={pageDescription} />
+  </head>
+  <body>
+    <Header />
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Project Spotlight</p>
+        <h1>{pageTitle}</h1>
+        <p class="lead">
+          A living collection of small Python utilities where I explore everyday automation, quick data
+          experiments, and CLI helpers. Each script solves a specific problem and doubles as a playground for
+          sharpening language features and third-party packages.
+        </p>
+      </section>
+
+      <section class="content">
+        <h2>What Lives in the Repo</h2>
+        <p>
+          The repository is intentionally eclectic: batch file renamers, API data fetchers, CSV cleaners, and
+          shell-friendly tooling. It is where ideas start lightweight before they grow into standalone
+          services or libraries.
+        </p>
+
+        <h3>Highlights</h3>
+        <ul>
+          <li>Hands-on automation scripts for file management, notifications, and workflow shortcuts.</li>
+          <li>Data wrangling helpers that tidy CSV and JSON payloads with pandas and native tooling.</li>
+          <li>Command-line experiments that showcase argparse patterns, logging, and packaging basics.</li>
+        </ul>
+
+        <h3>Why It Matters</h3>
+        <p>
+          Keeping a sandbox like this lets me iterate quickly, try new libraries, and carry working patterns
+          into production projects. It also gives collaborators tangible, copy-ready snippets for their own
+          use cases.
+        </p>
+
+        <p class="cta">
+          Browse the scripts, star the repository, or open an issue with your own automation idea:
+          <a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .hero {
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    color: var(--accent, #4b63ff);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 48ch;
+  }
+
+  .content h2,
+  .content h3 {
+    margin-top: 2rem;
+  }
+
+  .content ul {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.2rem;
+  }
+
+  .cta {
+    border-left: 3px solid var(--accent, #4b63ff);
+    margin-top: 2.5rem;
+    padding-left: 1rem;
+  }
+</style>
