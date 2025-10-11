@@ -1,0 +1,49 @@
+---
+interface Props {
+	theme?: 'blue' | 'purple' | 'teal';
+}
+
+const { theme = 'blue' } = Astro.props;
+
+const themeColors = {
+	blue: '#4b63ff',
+	purple: '#7c3aed',
+	teal: '#38bdf8',
+};
+
+const accentColor = themeColors[theme];
+---
+
+<div class="metric-grid">
+	<slot />
+</div>
+
+<style define:vars={{ accent: accentColor }}>
+	.metric-grid {
+		display: grid;
+		gap: 1.25rem;
+		margin: 2.5rem 0;
+	}
+
+	@media (min-width: 720px) {
+		.metric-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.metric-grid :global(.metric) {
+		font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+		font-weight: 700;
+		color: var(--accent);
+		margin-bottom: 0.4rem;
+	}
+
+	.metric-grid :global(.metric span) {
+		white-space: nowrap;
+	}
+
+	.metric-grid :global(.metric-label) {
+		font-size: 0.95rem;
+		color: #475467;
+	}
+</style>

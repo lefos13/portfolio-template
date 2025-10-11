@@ -1,0 +1,143 @@
+---
+interface Props {
+	ariaLabel?: string;
+	theme?: 'blue' | 'purple' | 'teal';
+	darkMode?: boolean;
+}
+
+const { ariaLabel = 'Project highlights', theme = 'blue', darkMode = false } = Astro.props;
+
+const themeColors = {
+	blue: {
+		bg: 'linear-gradient(135deg, rgba(224, 231, 255, 0.8), rgba(199, 210, 254, 0.6))',
+		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.4))',
+		border: 'rgba(99, 102, 241, 0.15)',
+		borderDark: 'rgba(99, 102, 241, 0.25)',
+		accent: '#4f46e5',
+		shadow: 'rgba(79, 70, 229, 0.08)',
+	},
+	purple: {
+		bg: 'linear-gradient(135deg, rgba(243, 232, 255, 0.8), rgba(233, 213, 255, 0.6))',
+		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.4))',
+		border: 'rgba(168, 85, 247, 0.15)',
+		borderDark: 'rgba(168, 85, 247, 0.25)',
+		accent: '#a855f7',
+		shadow: 'rgba(168, 85, 247, 0.08)',
+	},
+	teal: {
+		bg: 'linear-gradient(135deg, rgba(204, 251, 241, 0.8), rgba(153, 246, 228, 0.6))',
+		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.4))',
+		border: 'rgba(20, 184, 166, 0.15)',
+		borderDark: 'rgba(20, 184, 166, 0.25)',
+		accent: '#14b8a6',
+		shadow: 'rgba(20, 184, 166, 0.08)',
+	},
+};
+
+const colors = themeColors[theme];
+---
+
+<section class="bubble-grid" class:list={[darkMode && 'dark']} aria-label={ariaLabel}>
+	<slot />
+</section>
+
+<style define:vars={{ 
+	bg: colors.bg, 
+	bgDark: colors.bgDark,
+	border: colors.border, 
+	borderDark: colors.borderDark,
+	accent: colors.accent,
+	shadow: colors.shadow
+}}>
+	.bubble-grid {
+		display: grid;
+		gap: 1.75rem;
+		margin-bottom: 3rem;
+	}
+
+	@media (min-width: 780px) {
+		.bubble-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.bubble-grid :global(.bubble) {
+		position: relative;
+		padding: 2rem;
+		border-radius: 1.5rem;
+		background: var(--bg);
+		border: 1px solid var(--border);
+		box-shadow: 0 4px 20px var(--shadow), 0 1px 3px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		backdrop-filter: blur(8px);
+		overflow: visible;
+	}
+
+	.bubble-grid.dark :global(.bubble) {
+		background: var(--bgDark);
+		border: 1px solid var(--borderDark);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	.bubble-grid :global(.bubble:hover) {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 40px var(--shadow), 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.bubble-grid.dark :global(.bubble:hover) {
+		box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(0, 0, 0, 0.3);
+		border-color: var(--accent);
+	}
+
+	.bubble-grid :global(.bubble::before) {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, var(--accent), transparent);
+		border-radius: 1.5rem 1.5rem 0 0;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.bubble-grid :global(.bubble:hover::before) {
+		opacity: 1;
+	}
+
+	.bubble-grid :global(.bubble h3) {
+		position: relative;
+		margin: 0 0 1rem 0;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #1e293b;
+		letter-spacing: -0.02em;
+	}
+
+	.bubble-grid.dark :global(.bubble h3) {
+		color: #f1f5f9;
+	}
+
+	.bubble-grid :global(.bubble p) {
+		position: relative;
+		margin: 0;
+		line-height: 1.7;
+		color: #475569;
+		font-size: 0.95rem;
+	}
+
+	.bubble-grid.dark :global(.bubble p) {
+		color: #cbd5e1;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.bubble-grid :global(.bubble) {
+			transition: none !important;
+		}
+		
+		.bubble-grid :global(.bubble:hover) {
+			transform: none;
+		}
+	}
+</style>

@@ -1,0 +1,12 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<article class="bubble">
+	<h3>{title}</h3>
+	<p><slot /></p>
+</article>
