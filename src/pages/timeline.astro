@@ -1,0 +1,455 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Timeline | Lefteris Evangelinos" description="Milestones from my software engineering journey" />
+		<style>
+			main {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 3rem 1.5rem 4rem;
+			}
+
+			.timeline-header {
+				text-align: center;
+				margin-bottom: 4rem;
+			}
+
+			.timeline-header h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.timeline-header p {
+				font-size: 1.2rem;
+				color: #666;
+				max-width: 600px;
+				margin: 0 auto;
+				line-height: 1.7;
+			}
+
+			.timeline {
+				position: relative;
+				padding: 2rem 0;
+			}
+
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 4px;
+				height: 100%;
+				background: linear-gradient(180deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				border-radius: 2px;
+			}
+
+			.timeline-item {
+				position: relative;
+				margin-bottom: 4rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding-top: 3.5rem;
+			}
+
+			.timeline-item:nth-child(odd) {
+				flex-direction: row;
+			}
+
+			.timeline-item:nth-child(even) {
+				flex-direction: row-reverse;
+			}
+
+			.timeline-content {
+				width: 44%;
+				background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+				padding: 2rem;
+				border-radius: 1.2rem;
+				box-shadow: 0 4px 20px rgba(75, 99, 255, 0.12);
+				position: relative;
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+				border: 1px solid rgba(75, 99, 255, 0.08);
+			}
+
+			.timeline-item:nth-child(odd) .timeline-content {
+				margin-left: 3rem;
+			}
+
+			.timeline-item:nth-child(even) .timeline-content {
+				margin-right: 3rem;
+			}
+
+			.timeline-content:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 12px 32px rgba(75, 99, 255, 0.2);
+				border-color: rgba(75, 99, 255, 0.2);
+			}
+
+			.timeline-item:nth-child(odd) .timeline-content::after {
+				content: '';
+				position: absolute;
+				right: -10px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+				height: 0;
+				border-left: 10px solid white;
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+			}
+
+			.timeline-item:nth-child(even) .timeline-content::after {
+				content: '';
+				position: absolute;
+				left: -10px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+				height: 0;
+				border-right: 10px solid white;
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+			}
+
+			.timeline-marker {
+				position: absolute;
+				left: 50%;
+				top: 3.5rem;
+				transform: translateX(-50%);
+				width: 20px;
+				height: 20px;
+				background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				border: 4px solid white;
+				border-radius: 50%;
+				box-shadow: 0 0 0 4px rgba(75, 99, 255, 0.1);
+				z-index: 10;
+				transition: all 0.3s ease;
+			}
+
+			.timeline-item:hover .timeline-marker {
+				transform: translateX(-50%) scale(1.3);
+				box-shadow: 0 0 0 8px rgba(75, 99, 255, 0.15);
+			}
+
+			.timeline-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				border-radius: 0.8rem;
+				font-size: 1.3rem;
+				margin-right: 0.8rem;
+				box-shadow: 0 4px 12px rgba(75, 99, 255, 0.25);
+				flex-shrink: 0;
+			}
+
+			.year {
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%, -150%);
+				background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				color: white;
+				padding: 0.6rem 1.8rem;
+				border-radius: 2rem;
+				font-weight: 700;
+				font-size: 1rem;
+				top: 3.5rem;
+				box-shadow: 0 4px 16px rgba(75, 99, 255, 0.3);
+				white-space: nowrap;
+				border: 2px solid rgba(255, 255, 255, 0.3);
+			}
+
+			.timeline-title {
+				font-size: 1.5rem;
+				color: var(--accent, #4b63ff);
+				margin-bottom: 0.5rem;
+				font-weight: 700;
+				line-height: 1.3;
+			}
+
+			.timeline-subtitle {
+				font-size: 1rem;
+				color: #666;
+				margin-bottom: 1.2rem;
+				font-weight: 600;
+				line-height: 1.5;
+			}
+
+			.timeline-description {
+				color: #555;
+				line-height: 1.8;
+				margin-bottom: 1rem;
+				font-size: 0.95rem;
+			}
+
+			.timeline-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+				margin-top: 1.5rem;
+			}
+
+			.tag {
+				background: rgba(75, 99, 255, 0.08);
+				color: var(--accent, #4b63ff);
+				padding: 0.4rem 1rem;
+				border-radius: 1.5rem;
+				font-size: 0.85rem;
+				font-weight: 600;
+				border: 1px solid rgba(75, 99, 255, 0.15);
+				transition: all 0.2s ease;
+			}
+
+			.tag:hover {
+				background: rgba(75, 99, 255, 0.15);
+				border-color: rgba(75, 99, 255, 0.3);
+				transform: translateY(-2px);
+			}
+
+			.category-label {
+				display: inline-flex;
+				align-items: center;
+				background: linear-gradient(135deg, var(--accent, #4b63ff) 0%, #00a8e8 100%);
+				color: white;
+				padding: 0.4rem 1rem;
+				border-radius: 1rem;
+				font-size: 0.85rem;
+				font-weight: 600;
+				margin-bottom: 1.2rem;
+				box-shadow: 0 2px 8px rgba(75, 99, 255, 0.2);
+			}
+
+			@media (max-width: 768px) {
+				.timeline::before {
+					left: 30px;
+				}
+
+				.timeline-item,
+				.timeline-item:nth-child(even) {
+					flex-direction: row;
+					padding-left: 80px;
+					padding-top: 2.5rem;
+				}
+
+				.timeline-content {
+					width: 100%;
+					margin: 0;
+				}
+
+				.timeline-item:nth-child(odd) .timeline-content::after,
+				.timeline-item:nth-child(even) .timeline-content::after {
+					left: -10px;
+					right: auto;
+					border-right: 10px solid white;
+					border-left: none;
+				}
+
+				.timeline-marker {
+					left: 30px;
+					top: 2.5rem;
+				}
+
+				.year {
+					left: 30px;
+					top: 2.5rem;
+					transform: translate(-50%, -150%);
+					font-size: 0.9rem;
+					padding: 0.5rem 1.2rem;
+				}
+
+				.timeline-header h1 {
+					font-size: 2rem;
+				}
+
+				.timeline-icon {
+					width: 36px;
+					height: 36px;
+					font-size: 1.1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="timeline-header">
+				<h1>My Journey</h1>
+				<p>
+					Highlights from my software engineering career spanning consulting, product delivery, and hands-on development across web, mobile, and cloud projects.
+				</p>
+			</div>
+
+			<div class="timeline">
+				<!-- 2025 - Cognity Consulting -->
+				<div class="timeline-item">
+					<div class="year">2025</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">💼</div>
+							<span class="category-label" style="margin: 0;">Career</span>
+						</div>
+						<h3 class="timeline-title">Consultant & Software Engineer</h3>
+						<p class="timeline-subtitle">Cognity · Greece</p>
+						<p class="timeline-description">
+							Drive cross-functional delivery squads that modernize telecom self-care experiences with Vue.js. Partner with product and security teams to launch a React Native mobile banking application with hardened authentication flows and compliance-first data handling.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">Vue.js</span>
+							<span class="tag">React Native</span>
+							<span class="tag">Mobile Security</span>
+							<span class="tag">Consulting</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2024 - Platform Launches -->
+				<div class="timeline-item">
+					<div class="year">2024</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">🚀</div>
+							<span class="category-label" style="margin: 0;">Product Delivery</span>
+						</div>
+						<h3 class="timeline-title">Secure Mobile Banking Rollout</h3>
+						<p class="timeline-subtitle">Enterprise React Native Application</p>
+						<p class="timeline-description">
+							Designed and implemented end-to-end mobile banking journeys, including secure session management, encrypted data flows, and compliance reporting. Coordinated with auditors to validate controls before production launch.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">React Native</span>
+							<span class="tag">App Security</span>
+							<span class="tag">CI/CD</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2023 - Telecom Solutions -->
+				<div class="timeline-item">
+					<div class="year">2023</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">📡</div>
+							<span class="category-label" style="margin: 0;">Digital Platforms</span>
+						</div>
+						<h3 class="timeline-title">Telecom Experience Modernization</h3>
+						<p class="timeline-subtitle">Customer Portals & Operations Dashboards</p>
+						<p class="timeline-description">
+							Rebuilt telecom customer portals in Vue.js with modular UI components, caching strategies, and analytics instrumentation. Delivered operational dashboards that surface real-time KPIs for support teams and partners.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">Vue.js</span>
+							<span class="tag">State Management</span>
+							<span class="tag">Analytics</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2022 - Ouride Backend -->
+				<div class="timeline-item">
+					<div class="year">2022</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">🛣️</div>
+							<span class="category-label" style="margin: 0;">Startup Engineering</span>
+						</div>
+						<h3 class="timeline-title">Ouride Backend Evolution</h3>
+						<p class="timeline-subtitle">Co-founder & Back-end Developer</p>
+						<p class="timeline-description">
+							Scaled Greece's leading carpooling service with Node.js microservices, JWT-based auth, WebSocket chat, Firebase push notifications, and automated scheduling for ride maintenance windows.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">Node.js</span>
+							<span class="tag">WebSockets</span>
+							<span class="tag">Firebase</span>
+							<span class="tag">Startup</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2021 - Web & Cloud Projects -->
+				<div class="timeline-item">
+					<div class="year">2021</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">☁️</div>
+							<span class="category-label" style="margin: 0;">Research & Delivery</span>
+						</div>
+						<h3 class="timeline-title">Cloud Monitoring Platform</h3>
+						<p class="timeline-subtitle">Integrated Master’s Thesis</p>
+						<p class="timeline-description">
+							Built a Docker-based monitoring stack that ingests container logs, powers real-time streaming views, and visualizes health metrics through interactive dashboards. The work seeded follow-up theses within the department.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">Docker</span>
+							<span class="tag">Log Analytics</span>
+							<span class="tag">Real-time</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2021 - NetPlanet -->
+				<div class="timeline-item">
+					<div class="year">2021</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">💻</div>
+							<span class="category-label" style="margin: 0;">Career</span>
+						</div>
+						<h3 class="timeline-title">Web Developer · NetPlanet Greece</h3>
+						<p class="timeline-subtitle">E-commerce & Corporate Sites</p>
+						<p class="timeline-description">
+							Delivered responsive web experiences using modern JavaScript, ensuring accessibility and SEO alignment for marketing teams. Supported rapid landing page iterations and legacy CMS integrations.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">JavaScript</span>
+							<span class="tag">Ionic</span>
+							<span class="tag">CMS</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 2014-2021 - Education -->
+				<div class="timeline-item">
+					<div class="year">2014-21</div>
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<div class="timeline-icon">🎓</div>
+							<span class="category-label" style="margin: 0;">Education</span>
+						</div>
+						<h3 class="timeline-title">Informatics & Computer Engineering</h3>
+						<p class="timeline-subtitle">University of West Attica · Integrated Master’s</p>
+						<p class="timeline-description">
+							Completed software-focused studies covering algorithms, distributed systems, database design, and modern web technologies—laying the foundation for full-stack development and solution architecture.
+						</p>
+						<div class="timeline-tags">
+							<span class="tag">Software Engineering</span>
+							<span class="tag">Distributed Systems</span>
+							<span class="tag">Databases</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

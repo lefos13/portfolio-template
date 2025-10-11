@@ -77,6 +77,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<section class="featured-projects">
 				<h2>Featured Projects</h2>
+				<p class="projects-note">
+					Note: Due to confidentiality agreements with clients and employers, not all projects I've 
+					contributed to can be publicly shared. The projects showcased here represent a selection of 
+					my publicly available work that demonstrates my technical capabilities and approach to 
+					problem-solving.
+				</p>
 				<div class="projects-grid">
 					<article class="project-card">
 						<h3>Share the Ride</h3>
@@ -301,7 +307,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	.featured-projects h2 {
 		text-align: center;
 		font-size: 2.5rem;
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.projects-note {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto 3rem;
+		padding: 1.25rem 1.5rem;
+		background: rgba(75, 99, 255, 0.05);
+		border-left: 4px solid var(--accent, #4b63ff);
+		border-radius: 0.5rem;
+		color: #555;
+		font-size: 0.95rem;
+		line-height: 1.6;
 	}
 
 	.projects-grid {

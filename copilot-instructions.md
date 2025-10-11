@@ -3,10 +3,12 @@
 ## Project Context
 
 - This repository hosts a personal portfolio built with Astro.
+- The portfolio showcases both technical and literary achievements of Lefteris Evangelinos, a full-stack developer and published fantasy author.
 - Featured projects include:
   - **Share the Ride** – Node.js + Express backend delivering REST and Socket.IO APIs for a carpooling platform.
   - **ERT Game Web** – Full-stack multiplayer game application with Express.js backend and Vue 3 + TypeScript frontend, featuring real-time gameplay and admin controls.
   - **Python Random Scripts** – a grab bag of automation and data-wrangling utilities written in Python.
+- The timeline page chronicles professional milestones, literary publications, and educational background from early years in Volos, Greece through present day.
 
 ## Coding Style Expectations
 

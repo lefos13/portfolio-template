@@ -5,59 +5,263 @@ import Layout from '../layouts/BlogPost.astro';
 
 <Layout
 	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+	description="Full-stack developer, software engineer, and fantasy author"
+	pubDate={new Date('October 11 2025')}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+	<style>
+		.section-divider {
+			margin: 3rem 0 2rem;
+			padding-top: 2rem;
+			border-top: 2px solid #e0e0e0;
+		}
+		
+		.section-title {
+			color: var(--accent, #4b63ff);
+			font-size: 2rem;
+			margin-bottom: 1.5rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+		.profile-image {
+			float: right;
+			width: 280px;
+			max-width: 40%;
+			margin: 0 0 1.5rem 2rem;
+			border-radius: 0.75rem;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		}
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+		.section-image {
+			width: 100%;
+			max-width: 500px;
+			margin: 2rem auto;
+			display: block;
+			border-radius: 0.75rem;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		}
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+		@media (max-width: 768px) {
+			.profile-image {
+				float: none;
+				width: 100%;
+				max-width: 100%;
+				margin: 0 0 1.5rem 0;
+			}
+		}
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+		.book-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.book-card {
+			background: #f8f9fa;
+			padding: 1.5rem;
+			border-radius: 0.5rem;
+			border-left: 4px solid var(--accent, #4b63ff);
+		}
+
+		.book-title {
+			font-weight: 600;
+			color: #333;
+			margin-bottom: 0.5rem;
+		}
+
+		.book-series {
+			font-size: 0.9rem;
+			color: #666;
+			font-style: italic;
+		}
+
+		.book-rating {
+			font-size: 0.9rem;
+			color: #f39c12;
+			margin-top: 0.5rem;
+		}
+
+		.external-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.3rem;
+			color: var(--accent, #4b63ff);
+			text-decoration: none;
+			font-weight: 500;
+			margin-top: 1rem;
+		}
+
+		.external-link:hover {
+			text-decoration: underline;
+		}
+
+		.highlight-box {
+			background: linear-gradient(135deg, rgba(75, 99, 255, 0.1) 0%, rgba(0, 168, 232, 0.1) 100%);
+			padding: 1.5rem;
+			border-radius: 0.75rem;
+			margin: 2rem 0;
+			border-left: 4px solid var(--accent, #4b63ff);
+		}
+	</style>
+
+	<section>
+		<h2>Who I Am</h2>
+		<img src="/images/avatar.jpg" alt="Lefteris Evangelinos" class="profile-image" />
+		<p>
+			I'm Lefteris Evangelinos, a full-stack developer and software engineer with a passion for building 
+			scalable systems and crafting immersive stories. Born in Volos, Greece, with roots in Lavkos and 
+			Argalasti in South Pelion, I've always been drawn to both the technical precision of code and the 
+			creative freedom of storytelling.
+		</p>
+
+		<p>
+			I studied Computer Engineering at the University of West Attica, where I developed a strong foundation 
+			in software architecture, database design, and modern web technologies. My professional work focuses on 
+			backend development with Node.js and Express, real-time systems with Socket.IO, and creating intuitive 
+			user experiences with Vue.js and TypeScript.
+		</p>
+
+		<div class="highlight-box">
+			<strong>Core Philosophy:</strong> Whether I'm architecting a backend API or developing a fantasy world, 
+			I believe in attention to detail, clear structure, and the power of well-crafted systems to create 
+			meaningful experiences.
+		</div>
+	</section>
+
+	<section>
+		<h2>Technical Journey</h2>
+		<img src="/images/codingAvatar.jpg" alt="Coding workspace" class="section-image" />
+		<p>
+			My development work spans multiple domains, from carpooling platforms with multi-language support 
+			and real-time chat to multiplayer game applications with comprehensive admin dashboards. I'm 
+			particularly interested in:
+		</p>
+
+		<ul>
+			<li><strong>Backend Architecture:</strong> Building RESTful APIs, managing complex data flows, and 
+			ensuring system reliability through proper error handling and validation.</li>
+			<li><strong>Real-time Systems:</strong> Implementing WebSocket communications, managing concurrent 
+			users, and creating responsive live experiences.</li>
+			<li><strong>Modern Frontend:</strong> Crafting type-safe interfaces with Vue 3 and TypeScript, 
+			managing application state, and creating accessible user experiences.</li>
+			<li><strong>DevOps & Automation:</strong> Writing deployment scripts, managing environments, and 
+			building tools that streamline development workflows.</li>
+		</ul>
+
+		<p>
+			I approach every project as an opportunity to learn and refine my craft. From authentication flows 
+			and session management to notification systems and scheduled jobs, I'm constantly exploring ways to 
+			make systems more robust, maintainable, and user-friendly.
+		</p>
+	</section>
+
+	<section class="section-divider">
+		<h2 class="section-title">📚 Literary Work</h2>
+		<img src="/images/literatureAvatar.jpeg" alt="Literary work" class="section-image" />
+		
+		<p>
+			Beyond the world of code, I'm a published fantasy author with a deep love for epic storytelling. 
+			Since childhood, I've been captivated by fantasy literature—works by Robert Jordan and Tolkien 
+			shaped my imagination and inspired me to create my own fantastical worlds.
+		</p>
+
+		<p>
+			Through my writing, I explore themes that matter in the real world, weaving my concerns, thoughts, 
+			and reflections into narratives that blend heroic adventure with philosophical depth. My stories 
+			are not just escapism; they're a mirror reflecting the complexities of our world through the lens 
+			of fantasy.
+		</p>
+
+		<h3>Published Works</h3>
+		
+		<p>
+			My main series, <strong>"Το πεπρωμένο του Ραθ" (The Fate of Rath)</strong>, is an epic fantasy 
+			trilogy published by Συμπαντικές Διαδρομές (Universe Pathways Editions). The series concluded with 
+			the release of the third book at the "Όψεις του Φανταστικού" (Aspects of the Fantastic) festival.
+		</p>
+
+		<div class="book-grid">
+			<div class="book-card">
+				<div class="book-title">Το πεπρωμένο του Ραθ</div>
+				<div class="book-series">The Fate of Rath, Book #1</div>
+				<div class="book-rating">⭐ 4.82/5 average rating (17 ratings)</div>
+			</div>
+			<div class="book-card">
+				<div class="book-title">Στις Απαρχές της Δημιουργίας</div>
+				<div class="book-series">The Fate of Rath, Book #2</div>
+				<div class="book-rating">⭐ 4.50/5 average rating (6 ratings)</div>
+			</div>
+			<div class="book-card">
+				<div class="book-title">Το τέκνο της λύτρωσης</div>
+				<div class="book-series">The Fate of Rath, Book #3</div>
+				<div class="book-rating">⭐ 5.00/5 average rating (1 rating)</div>
+			</div>
+		</div>
+
+		<h3>Other Publications</h3>
+		<p>
+			In addition to my main series, I've contributed to several anthology collections and collaborative 
+			projects in the Greek fantasy community:
+		</p>
+		<ul>
+			<li><strong>Πεφταστέρι</strong> – Poetry and short prose collection (4.78/5 rating)</li>
+			<li><strong>Larry Niven 2021 & 2022</strong> – Fantasy literature award collections</li>
+			<li><strong>Θρύλοι του Σύμπαντος X</strong> – Collaborative anthology</li>
+			<li>Contributions to <strong>"There Once Was A Myth"</strong>, <strong>"Echoes of a Lost Time"</strong>, 
+			and <strong>"The Path Not Taken"</strong></li>
+		</ul>
+
+		<div class="highlight-box">
+			<strong>Literary Influences:</strong> Brandon Sanderson, Robert Jordan, J.R.R. Tolkien<br>
+			<strong>Genres:</strong> Epic Fantasy, Heroic Fantasy, Poetry<br>
+			<strong>Themes:</strong> Fate vs. free will, redemption, the cost of power, philosophical reflection
+		</div>
+
+		<p>
+			I maintain an active presence on Goodreads, where I engage with the fantasy community, share 
+			reviews, and connect with fellow readers and writers. My current reading challenge for 2025 aims 
+			for 30 books, and I'm particularly enjoying Brandon Sanderson's Stormlight Archive series.
+		</p>
+
+		<a href="https://www.goodreads.com/author/show/22082144._" target="_blank" rel="noopener" class="external-link">
+			View my Goodreads author profile →
+		</a>
+		<br>
+		<a href="https://evanfree.blogspot.com/" target="_blank" rel="noopener" class="external-link">
+			Visit my blog →
+		</a>
+	</section>
+
+	<section class="section-divider">
+		<h2>Bringing It All Together</h2>
+		<p>
+			My dual passions for software development and storytelling inform each other in unexpected ways. 
+			The systematic thinking required for coding helps me structure complex narratives, while the 
+			creative freedom of writing keeps my problem-solving fresh and innovative.
+		</p>
+
+		<p>
+			Whether I'm debugging a WebSocket connection or developing a character arc, I approach each 
+			challenge with curiosity, discipline, and a commitment to craft. Both fields demand attention to 
+			detail, an understanding of structure, and the ability to create systems—whether they're software 
+			architectures or fictional worlds—that feel cohesive and alive.
+		</p>
+
+		<p>
+			If you'd like to discuss technology, collaborate on a project, or talk about fantasy literature, 
+			I'd love to hear from you. Let's create something remarkable together.
+		</p>
+
+		<div style="margin-top: 2rem;">
+			<a href="https://www.linkedin.com/in/lefteris-evangelinos-0370871b9/" target="_blank" rel="noopener" class="external-link">
+				Connect on LinkedIn →
+			</a>
+			<br>
+			<a href="https://github.com/lefos13" target="_blank" rel="noopener" class="external-link">
+				View GitHub profile →
+			</a>
+		</div>
+	</section>
 </Layout>
