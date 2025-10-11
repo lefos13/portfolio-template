@@ -91,8 +91,11 @@ const colors = themeColors[theme];
 		position: relative;
 		margin: 0 auto;
 		max-width: 1100px;
-		padding: 4rem 1.5rem 5rem;
+		padding: 4rem 1rem 5rem;
 		color: #101828;
+		width: 100%;
+		box-sizing: border-box;
+		overflow-x: hidden;
 	}
 
 	.background {
@@ -240,6 +243,149 @@ const colors = themeColors[theme];
 		.ghost {
 			animation: none !important;
 			transition: none !important;
+		}
+	}
+	
+	@media (max-width: 1024px) {
+		.page {
+			padding: 3rem 1rem 4rem;
+			width: 100%;
+		}
+		
+		.hero {
+			margin-bottom: 2.5rem;
+		}
+		
+		.content {
+			padding: 2.5rem clamp(1rem, 3vw, 2rem);
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.page {
+			padding: 2.5rem 0.75rem 3rem;
+			width: 100%;
+		}
+		
+		.hero {
+			margin-bottom: 2rem;
+		}
+		
+		.hero h1 {
+			font-size: 2rem;
+			line-height: 1.2;
+		}
+		
+		.eyebrow {
+			font-size: 0.8rem;
+			margin-bottom: 0.5rem;
+		}
+		
+		.lead {
+			font-size: 1rem;
+			line-height: 1.6;
+			margin-top: 0.75rem;
+		}
+		
+		.cta-group {
+			flex-direction: column;
+			width: 100%;
+			max-width: 400px;
+			margin: 1.5rem auto 0;
+		}
+		
+		.button,
+		.ghost {
+			width: 100%;
+			padding: 0.75rem 1.4rem;
+			font-size: 0.95rem;
+		}
+		
+		.content {
+			padding: 2rem 1.5rem;
+			border-radius: 1.5rem;
+		}
+		
+		.content :global(h2) {
+			font-size: 1.75rem;
+			margin-top: 2rem;
+		}
+		
+		.content :global(h3) {
+			font-size: 1.4rem;
+			margin-top: 1.75rem;
+		}
+		
+		.content :global(h4) {
+			font-size: 1.2rem;
+		}
+		
+		.content :global(p) {
+			font-size: 0.95rem;
+		}
+		
+		.content :global(ul) {
+			padding-left: 1rem;
+		}
+		
+		.content :global(li) {
+			font-size: 0.95rem;
+			margin-bottom: 0.5rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.page {
+			padding: 2rem 0.5rem 2.5rem;
+			width: 100%;
+		}
+		
+		.hero h1 {
+			font-size: 1.75rem;
+		}
+		
+		.eyebrow {
+			font-size: 0.75rem;
+		}
+		
+		.lead {
+			font-size: 0.95rem;
+		}
+		
+		.button,
+		.ghost {
+			padding: 0.7rem 1.2rem;
+			font-size: 0.9rem;
+		}
+		
+		.content {
+			padding: 1.5rem 1.25rem;
+			border-radius: 1.25rem;
+		}
+		
+		.content :global(h2) {
+			font-size: 1.5rem;
+			margin-top: 1.75rem;
+		}
+		
+		.content :global(h3) {
+			font-size: 1.25rem;
+			margin-top: 1.5rem;
+		}
+		
+		.content :global(h4) {
+			font-size: 1.1rem;
+		}
+		
+		.content :global(p),
+		.content :global(li) {
+			font-size: 0.9rem;
+		}
+		
+		.content :global(.cta) {
+			padding-left: 0.75rem;
+			margin-top: 2rem;
+			font-size: 0.9rem;
 		}
 	}
 </style>

@@ -143,4 +143,51 @@ const colors = themeColors[theme];
 			transform: none;
 		}
 	}
+	
+	@media (max-width: 1024px) {
+		.stack-grid {
+			gap: 1.5rem;
+		}
+	}
+	
+	@media (max-width: 719px) {
+		.stack-grid {
+			grid-template-columns: 1fr;
+			gap: 1.25rem;
+			margin-top: 1.25rem;
+		}
+		
+		.stack-grid :global(> div) {
+			padding: 1.5rem;
+		}
+		
+		.stack-grid :global(h4) {
+			font-size: 1.05rem;
+		}
+		
+		.stack-grid :global(p) {
+			font-size: 0.9rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.stack-grid {
+			gap: 1rem;
+		}
+		
+		.stack-grid :global(> div) {
+			padding: 1.25rem;
+			border-radius: 1rem;
+		}
+		
+		.stack-grid :global(h4) {
+			font-size: 1rem;
+			margin-bottom: 0.65rem;
+		}
+		
+		.stack-grid :global(p) {
+			font-size: 0.875rem;
+			line-height: 1.6;
+		}
+	}
 </style>

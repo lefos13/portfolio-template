@@ -74,4 +74,38 @@ const today = new Date();
 		background: rgba(99, 102, 241, 0.1);
 		transform: translateY(-3px);
 	}
+	
+	@media (max-width: 768px) {
+		footer {
+			padding: 1.5em 0.75em 5em 0.75em;
+			font-size: 0.95rem;
+		}
+		
+		.social-links {
+			gap: 0.75rem;
+			margin-top: 1.25em;
+		}
+		
+		.social-links a svg {
+			width: 28px;
+			height: 28px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		footer {
+			padding: 1.25em 0.5em 4em 0.5em;
+			font-size: 0.9rem;
+		}
+		
+		.social-links {
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		
+		.social-links a svg {
+			width: 26px;
+			height: 26px;
+		}
+	}
 </style>
