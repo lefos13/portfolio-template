@@ -51,7 +51,7 @@
             "tags": ["Node.js", "Express", "Socket.IO", "MySQL"]
           },
           {
-            "title": "ERT Game Web",
+            "title": "Web game",
             "description": "Real-time multiplayer game platform with Express.js backend and Vue 3 frontend. Features round-based gameplay, voting mechanics, admin dashboard, and comprehensive session management.",
             "tags": ["Vue 3", "TypeScript", "Express", "Real-time"]
           },
@@ -265,7 +265,7 @@
         "cta": "Interested in the technical deep dive or API coverage? Let's chat about the architecture decisions and how they can translate to your next mobility project."
       },
       "ert-game-web": {
-        "title": "ERT Game Web",
+        "title": "Web game",
         "description": "A real-time multiplayer game platform where players submit answers, vote on responses, and compete for points. Built with Express.js, Vue 3, TypeScript, and featuring comprehensive admin controls and session management.",
         "highlights": [
           {
@@ -281,7 +281,7 @@
             "content": "Game exports and dashboards track engagement, highlight best answers, and inform future content drops."
           }
         ],
-        "whatIBuilt": "ERT Game is a complete full-stack application that demonstrates modern web development practices. The platform supports multiple players simultaneously, real-time game state management, and provides both player and administrator interfaces with distinct workflows.",
+        "whatIBuilt": "Web Game is a complete full-stack application that demonstrates modern web development practices. The platform supports multiple players simultaneously, real-time game state management, and provides both player and administrator interfaces with distinct workflows.",
         "metrics": [
           { "value": "6+", "label": "Concurrent players per match" },
           { "value": "99.9%", "label": "WebSocket uptime in tests" },
