@@ -4,3 +4,4 @@
 export const SITE_TITLE = "Portfolio";
 export const SITE_DESCRIPTION = "Welcome to my website!";
 export const BASE_URI = "/portfolio-template";
+export const OG_IMAGE = "/images/og-image.jpg";
