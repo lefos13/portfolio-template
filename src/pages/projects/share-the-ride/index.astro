@@ -1,89 +1,77 @@
 ---
-import ProjectLayout from '../../../components/ProjectLayout.astro';
-import BubbleGrid from '../../../components/BubbleGrid.astro';
-import Bubble from '../../../components/Bubble.astro';
-import MetricGrid from '../../../components/MetricGrid.astro';
-import Metric from '../../../components/Metric.astro';
-import StackGrid from '../../../components/StackGrid.astro';
+import content from "../../../content.json";
+import ProjectLayout from "../../../components/ProjectLayout.astro";
+import BubbleGrid from "../../../components/BubbleGrid.astro";
+import Bubble from "../../../components/Bubble.astro";
+import MetricGrid from "../../../components/MetricGrid.astro";
+import Metric from "../../../components/Metric.astro";
+import StackGrid from "../../../components/StackGrid.astro";
 
-const pageTitle = 'Share the Ride Backend';
-const pageDescription = 'Share is the production-ready Node.js and Express service behind the "Share the Ride" carpooling platform, delivering secure REST and WebSocket experiences for riders and drivers.';
-const repoUrl = 'https://github.com/lefos13/share-the-ride-be';
+const project = content.pages.projects["share-the-ride"];
+const pageTitle = project.title;
+const pageDescription = project.description;
+const repoUrl = "https://github.com/lefos13/share-the-ride-be";
 ---
 
-<ProjectLayout 
-	title={pageTitle} 
-	description={pageDescription} 
-	repoUrl={repoUrl}
-	theme="blue"
+<ProjectLayout
+  title={pageTitle}
+  description={pageDescription}
+  repoUrl={repoUrl}
+  theme="blue"
 >
-	<BubbleGrid ariaLabel="Project highlights" theme="blue">
-		<Bubble title="Production Ready">
-			Multi-region deployments with environment-aware configuration, rate limiting, and zero-downtime
-			releases keep commuter traffic flowing.
-		</Bubble>
-		<Bubble title="Secure by Design">
-			Tenant-aware JWT flows, audit trails, and encryption utilities give riders and drivers credible
-			trust guarantees.
-		</Bubble>
-		<Bubble title="Observability">
-			Centralized logging, Grafana dashboards, and synthetic health probes surface issues long before
-			users notice.
-		</Bubble>
-	</BubbleGrid>
+  <BubbleGrid ariaLabel="Project highlights" theme="blue">
+    {
+      project.highlights.map((highlight) => (
+        <Bubble title={highlight.title}>{highlight.content}</Bubble>
+      ))
+    }
+  </BubbleGrid>
 
-	<h2>What I Built</h2>
-	<p>
-		I designed and implemented a layered backend that keeps the platform reliable and responsive.
-		It orchestrates authentication, ride workflows, chat, notifications, and scheduled maintenance jobs
-		while staying adaptable to feature requests from product and mobile teams.
-	</p>
+  <h2>What I Built</h2>
+  <p>
+    {project.whatIBuilt}
+  </p>
 
-	<MetricGrid theme="blue">
-		<Metric value="1k+" label="Rides posted" />
-		<Metric value="<150ms" label="Median API response" />
-		<Metric value="0 dn" label="During release" />
-	</MetricGrid>
+  <MetricGrid theme="blue">
+    {
+      project.metrics.map((metric) => (
+        <Metric value={metric.value} label={metric.label} />
+      ))
+    }
+  </MetricGrid>
 
-	<h3>Highlights</h3>
-	<ul>
-		<li>JWT-secured APIs covering posts, interests, reviews, and rider onboarding.</li>
-		<li>Real-time Socket.IO messaging with optional AES encryption and Firebase fallback alerts.</li>
-		<li>Daily jobs that archive stale posts, refresh ride statistics, and prune expired conversations.</li>
-	</ul>
+  <h3>Highlights</h3>
+  <ul>
+    {project.features.map((feature) => <li>{feature}</li>)}
+  </ul>
 
-	<h3 id="architecture">Architecture Glimpse</h3>
-	<p>
-		The service follows a clear separation of concerns: Express routers feed thin controllers, business
-		logic lives in domain services, and Sequelize modules handle data access for MySQL. Shared utilities
-		cover localization, notifications, and encryption so each feature team has consistent building blocks.
-	</p>
+  <h3 id="architecture">Architecture Glimpse</h3>
+  <p>
+    {project.architecture}
+  </p>
 
-	<h3>Stack at a Glance</h3>
-	<StackGrid theme="blue">
-		<div>
-			<h4>Core</h4>
-			<p>Node.js, Express 4, Socket.IO, Sequelize, MySQL</p>
-		</div>
-		<div>
-			<h4>Messaging & Auth</h4>
-			<p>JWT, Firebase Cloud Messaging, Redis (optional), Nodemailer</p>
-		</div>
-		<div>
-			<h4>Operational</h4>
-			<p>node-schedule jobs, Docker-ready configuration, REST client collections</p>
-		</div>
-	</StackGrid>
+  <h3>Stack at a Glance</h3>
+  <StackGrid theme="blue">
+    <div>
+      <h4>Core</h4>
+      <p>{project.stack.core}</p>
+    </div>
+    <div>
+      <h4>Messaging & Auth</h4>
+      <p>{project.stack.messagingAuth}</p>
+    </div>
+    <div>
+      <h4>Operational</h4>
+      <p>{project.stack.operational}</p>
+    </div>
+  </StackGrid>
 
-	<h3>Outcome</h3>
-	<p>
-		Share has supported multi-language trip planning across web and mobile clients since launch. The
-		backend scales comfortably on Node 16+, keeps ride data fresh with automated pruning, and provides a
-		single source of truth for notifications and chat history.
-	</p>
+  <h3>Outcome</h3>
+  <p>
+    {project.outcome}
+  </p>
 
-	<p class="cta">
-		Interested in the technical deep dive or API coverage? Let's chat about the architecture decisions
-		and how they can translate to your next mobility project.
-	</p>
+  <p class="cta">
+    {project.cta}
+  </p>
 </ProjectLayout>

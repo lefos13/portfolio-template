@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import { BASE_URI } from "../consts";
+import content from "../content.json";
 ---
 
 <Layout
@@ -176,79 +177,53 @@ import { BASE_URI } from "../consts";
   </style>
 
   <section>
-    <h2>Who I Am</h2>
+    <h2>{content.pages.about.whoIAm.title}</h2>
     <img
       src={`${BASE_URI}/images/avatar.jpg`}
       alt="Lefteris Evangelinos"
       class="profile-image"
     />
     <p>
-      I'm Lefteris Evangelinos, a full-stack developer and software engineer
-      with a passion for building scalable systems and crafting immersive
-      stories. Born in Volos, Greece, with roots in Lavkos and Argalasti in
-      South Pelion, I've always been drawn to both the technical precision of
-      code and the creative freedom of storytelling.
+      {content.pages.about.whoIAm.content}
     </p>
 
     <p>
-      I studied Computer Engineering at the University of West Attica, where I
-      developed a strong foundation in software architecture, database design,
-      and modern web technologies. My professional work focuses on backend
-      development with Node.js and Express, real-time systems with Socket.IO,
-      and creating intuitive user experiences with Vue.js and TypeScript.
+      {content.pages.about.whoIAm.education}
     </p>
 
     <div class="highlight-box">
-      <strong>Core Philosophy:</strong> Whether I'm architecting a backend API or
-      developing a fantasy world, I believe in attention to detail, clear structure,
-      and the power of well-crafted systems to create meaningful experiences.
+      <strong>{content.pages.about.whoIAm.philosophy}</strong>
     </div>
   </section>
 
   <section>
-    <h2>Technical Journey</h2>
+    <h2>{content.pages.about.technicalJourney.title}</h2>
     <img
       src={`${BASE_URI}/images/codingAvatar.jpg`}
       alt="Coding workspace"
       class="section-image"
     />
     <p>
-      My development work spans multiple domains, from carpooling platforms with
-      multi-language support and real-time chat to multiplayer game applications
-      with comprehensive admin dashboards. I'm particularly interested in:
+      {content.pages.about.technicalJourney.description}
     </p>
 
     <ul>
-      <li>
-        <strong>Backend Architecture:</strong> Building RESTful APIs, managing complex
-        data flows, and ensuring system reliability through proper error handling
-        and validation.
-      </li>
-      <li>
-        <strong>Real-time Systems:</strong> Implementing WebSocket communications,
-        managing concurrent users, and creating responsive live experiences.
-      </li>
-      <li>
-        <strong>Modern Frontend:</strong> Crafting type-safe interfaces with Vue
-        3 and TypeScript, managing application state, and creating accessible user
-        experiences.
-      </li>
-      <li>
-        <strong>DevOps & Automation:</strong> Writing deployment scripts, managing
-        environments, and building tools that streamline development workflows.
-      </li>
+      {
+        content.pages.about.technicalJourney.interests.map((interest) => (
+          <li>
+            <strong>{interest.split(":")[0]}:</strong> {interest.split(":")[1]}
+          </li>
+        ))
+      }
     </ul>
 
     <p>
-      I approach every project as an opportunity to learn and refine my craft.
-      From authentication flows and session management to notification systems
-      and scheduled jobs, I'm constantly exploring ways to make systems more
-      robust, maintainable, and user-friendly.
+      {content.pages.about.technicalJourney.approach}
     </p>
   </section>
 
   <section class="section-divider">
-    <h2 class="section-title">📚 Literary Work</h2>
+    <h2 class="section-title">📚 {content.pages.about.literaryWork.title}</h2>
     <img
       src={`${BASE_URI}/images/literatureAvatar.jpeg`}
       alt="Literary work"
@@ -256,80 +231,58 @@ import { BASE_URI } from "../consts";
     />
 
     <p>
-      Beyond the world of code, I'm a published fantasy author with a deep love
-      for epic storytelling. Since childhood, I've been captivated by fantasy
-      literature—works by Robert Jordan and Tolkien shaped my imagination and
-      inspired me to create my own fantastical worlds.
+      {content.pages.about.literaryWork.description}
     </p>
 
     <p>
-      Through my writing, I explore themes that matter in the real world,
-      weaving my concerns, thoughts, and reflections into narratives that blend
-      heroic adventure with philosophical depth. My stories are not just
-      escapism; they're a mirror reflecting the complexities of our world
-      through the lens of fantasy.
+      {content.pages.about.literaryWork.content}
     </p>
 
     <h3>Published Works</h3>
 
     <p>
-      My main series, <strong>"Το πεπρωμένο του Ραθ" (The Fate of Rath)</strong
-      >, is an epic fantasy trilogy published by Συμπαντικές Διαδρομές (Universe
-      Pathways Editions). The series concluded with the release of the third
-      book at the "Όψεις του Φανταστικού" (Aspects of the Fantastic) festival.
+      {content.pages.about.literaryWork.publishedWorks.description}
     </p>
 
     <div class="book-grid">
-      <div class="book-card">
-        <div class="book-title">Το πεπρωμένο του Ραθ</div>
-        <div class="book-series">The Fate of Rath, Book #1</div>
-        <div class="book-rating">⭐ 4.82/5 average rating (17 ratings)</div>
-      </div>
-      <div class="book-card">
-        <div class="book-title">Στις Απαρχές της Δημιουργίας</div>
-        <div class="book-series">The Fate of Rath, Book #2</div>
-        <div class="book-rating">⭐ 4.50/5 average rating (6 ratings)</div>
-      </div>
-      <div class="book-card">
-        <div class="book-title">Το τέκνο της λύτρωσης</div>
-        <div class="book-series">The Fate of Rath, Book #3</div>
-        <div class="book-rating">⭐ 5.00/5 average rating (1 rating)</div>
-      </div>
+      {
+        content.pages.about.literaryWork.publishedWorks.books.map((book) => (
+          <div class="book-card">
+            <div class="book-title">{book.title}</div>
+            <div class="book-series">{book.series}</div>
+            <div class="book-rating">⭐ {book.rating}</div>
+          </div>
+        ))
+      }
     </div>
 
     <h3>Other Publications</h3>
     <p>
-      In addition to my main series, I've contributed to several anthology
-      collections and collaborative projects in the Greek fantasy community:
+      {
+        content.pages.about.literaryWork.publishedWorks.otherPublications
+          .description
+      }
     </p>
     <ul>
-      <li>
-        <strong>Πεφταστέρι</strong> – Poetry and short prose collection (4.78/5 rating)
-      </li>
-      <li>
-        <strong>Larry Niven 2021 & 2022</strong> – Fantasy literature award collections
-      </li>
-      <li><strong>Θρύλοι του Σύμπαντος X</strong> – Collaborative anthology</li>
-      <li>
-        Contributions to <strong>"There Once Was A Myth"</strong>, <strong
-          >"Echoes of a Lost Time"</strong
-        >, and <strong>"The Path Not Taken"</strong>
-      </li>
+      {
+        content.pages.about.literaryWork.publishedWorks.otherPublications.publications.map(
+          (pub) => <li>{pub}</li>
+        )
+      }
     </ul>
 
     <div class="highlight-box">
-      <strong>Literary Influences:</strong> Brandon Sanderson, Robert Jordan, J.R.R.
-      Tolkien<br />
-      <strong>Genres:</strong> Epic Fantasy, Heroic Fantasy, Poetry<br />
-      <strong>Themes:</strong> Fate vs. free will, redemption, the cost of power,
-      philosophical reflection
+      <strong>Literary Influences:</strong>
+      {content.pages.about.literaryWork.publishedWorks.influences.literary}<br
+      />
+      <strong>Genres:</strong>
+      {content.pages.about.literaryWork.publishedWorks.influences.genres}<br />
+      <strong>Themes:</strong>
+      {content.pages.about.literaryWork.publishedWorks.influences.themes}
     </div>
 
     <p>
-      I maintain an active presence on Goodreads, where I engage with the
-      fantasy community, share reviews, and connect with fellow readers and
-      writers. My current reading challenge for 2025 aims for 30 books, and I'm
-      particularly enjoying Brandon Sanderson's Stormlight Archive series.
+      {content.pages.about.literaryWork.publishedWorks.goodreads}
     </p>
 
     <a
@@ -352,27 +305,17 @@ import { BASE_URI } from "../consts";
   </section>
 
   <section class="section-divider">
-    <h2>Bringing It All Together</h2>
+    <h2>{content.pages.about.bringingItTogether.title}</h2>
     <p>
-      My dual passions for software development and storytelling inform each
-      other in unexpected ways. The systematic thinking required for coding
-      helps me structure complex narratives, while the creative freedom of
-      writing keeps my problem-solving fresh and innovative.
+      {content.pages.about.bringingItTogether.content}
     </p>
 
     <p>
-      Whether I'm debugging a WebSocket connection or developing a character
-      arc, I approach each challenge with curiosity, discipline, and a
-      commitment to craft. Both fields demand attention to detail, an
-      understanding of structure, and the ability to create systems—whether
-      they're software architectures or fictional worlds—that feel cohesive and
-      alive.
+      {content.pages.about.bringingItTogether.approach}
     </p>
 
     <p>
-      If you'd like to discuss technology, collaborate on a project, or talk
-      about fantasy literature, I'd love to hear from you. Let's create
-      something remarkable together.
+      {content.pages.about.bringingItTogether.invitation}
     </p>
 
     <div style="margin-top: 2rem;">

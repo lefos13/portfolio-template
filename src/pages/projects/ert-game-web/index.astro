@@ -1,99 +1,83 @@
 ---
-import ProjectLayout from '../../../components/ProjectLayout.astro';
-import BubbleGrid from '../../../components/BubbleGrid.astro';
-import Bubble from '../../../components/Bubble.astro';
-import MetricGrid from '../../../components/MetricGrid.astro';
-import Metric from '../../../components/Metric.astro';
-import StackGrid from '../../../components/StackGrid.astro';
+import content from "../../../content.json";
+import ProjectLayout from "../../../components/ProjectLayout.astro";
+import BubbleGrid from "../../../components/BubbleGrid.astro";
+import Bubble from "../../../components/Bubble.astro";
+import MetricGrid from "../../../components/MetricGrid.astro";
+import Metric from "../../../components/Metric.astro";
+import StackGrid from "../../../components/StackGrid.astro";
 
-const pageTitle = 'ERT Game Web';
-const pageDescription = 'A real-time multiplayer game platform where players submit answers, vote on responses, and compete for points. Built with Express.js, Vue 3, TypeScript, and featuring comprehensive admin controls and session management.';
-const repoUrl = 'https://github.com/lefos13/ert-game-web';
+const project = content.pages.projects["ert-game-web"];
+const pageTitle = project.title;
+const pageDescription = project.description;
+const repoUrl = "https://github.com/lefos13/ert-game-web";
 ---
 
-<ProjectLayout 
-	title={pageTitle} 
-	description={pageDescription} 
-	repoUrl={repoUrl}
-	theme="blue"
+<ProjectLayout
+  title={pageTitle}
+  description={pageDescription}
+  repoUrl={repoUrl}
+  theme="blue"
 >
-	<BubbleGrid ariaLabel="Player experience highlights" theme="blue">
-		<Bubble title="Party Ready">
-			Sessions spin up in seconds with QR join codes, responsive layouts, and soundtrack support for a
-			couch-friendly trivia experience.
-		</Bubble>
-		<Bubble title="Host Controls">
-			Admins orchestrate rounds, tweak scoring, and broadcast announcements with guardrails for
-			multiplayer fairness.
-		</Bubble>
-		<Bubble title="Analytics">
-			Game exports and dashboards track engagement, highlight best answers, and inform future content
-			drops.
-		</Bubble>
-	</BubbleGrid>
+  <BubbleGrid ariaLabel="Player experience highlights" theme="blue">
+    {
+      project.highlights.map((highlight) => (
+        <Bubble title={highlight.title}>{highlight.content}</Bubble>
+      ))
+    }
+  </BubbleGrid>
 
-	<h2>What I Built</h2>
-	<p>
-		ERT Game is a complete full-stack application that demonstrates modern web development practices. 
-		The platform supports multiple players simultaneously, real-time game state management, and provides 
-		both player and administrator interfaces with distinct workflows.
-	</p>
+  <h2>What I Built</h2>
+  <p>
+    {project.whatIBuilt}
+  </p>
 
-	<MetricGrid theme="blue">
-		<Metric value="6+" label="Concurrent players per match" />
-		<Metric value="99.9%" label="WebSocket uptime in tests" />
-		<Metric value="10 min" label="Fresh install to first game" />
-	</MetricGrid>
+  <MetricGrid theme="blue">
+    {
+      project.metrics.map((metric) => (
+        <Metric value={metric.value} label={metric.label} />
+      ))
+    }
+  </MetricGrid>
 
-	<h3 id="features">Key Features</h3>
-	<ul>
-		<li>Real-time multiplayer gameplay with round-based question-answer mechanics.</li>
-		<li>Dual-interface design: streamlined player view and comprehensive admin dashboard.</li>
-		<li>Session management with voting system, point tracking, and game history exports.</li>
-		<li>Automated installation scripts for Windows (PowerShell) and Linux/macOS (Bash).</li>
-		<li>RESTful API with health checks, CORS configuration, and proper error handling.</li>
-	</ul>
+  <h3 id="features">Key Features</h3>
+  <ul>
+    {project.features.map((feature) => <li>{feature}</li>)}
+  </ul>
 
-	<h3>Technical Architecture</h3>
-	<p>
-		The backend runs on Express.js with JSON file-based persistence for session data and round status. 
-		The Vue 3 frontend leverages TypeScript, Pinia state management, and modern Sass modules for styling. 
-		Component organization follows domain-driven principles, separating player, admin, and shared UI elements.
-	</p>
+  <h3>Technical Architecture</h3>
+  <p>
+    {project.architecture}
+  </p>
 
-	<h3>Stack at a Glance</h3>
-	<StackGrid theme="blue">
-		<div>
-			<h4>Backend</h4>
-			<p>Node.js, Express, RESTful APIs, JSON persistence</p>
-		</div>
-		<div>
-			<h4>Frontend</h4>
-			<p>Vue 3, TypeScript, Vite, Pinia, Sass modules</p>
-		</div>
-		<div>
-			<h4>DevOps</h4>
-			<p>Automated installers, environment detection, health checks</p>
-		</div>
-	</StackGrid>
+  <h3>Stack at a Glance</h3>
+  <StackGrid theme="blue">
+    <div>
+      <h4>Backend</h4>
+      <p>{project.stack.backend}</p>
+    </div>
+    <div>
+      <h4>Frontend</h4>
+      <p>{project.stack.frontend}</p>
+    </div>
+    <div>
+      <h4>DevOps</h4>
+      <p>{project.stack.devops}</p>
+    </div>
+  </StackGrid>
 
-	<h3>API Highlights</h3>
-	<p>
-		The server exposes comprehensive endpoints for session management, round status tracking, and player 
-		operations including joining, answering, voting, and point updates. All routes return consistent JSON 
-		responses with proper HTTP status codes.
-	</p>
+  <h3>API Highlights</h3>
+  <p>
+    {project.apiHighlights}
+  </p>
 
-	<h3>Outcome</h3>
-	<p>
-		The application has been deployed and tested across different environments. The installer scripts 
-		detect IP addresses automatically and configure both server and client for immediate use. The 
-		architecture scales comfortably for local network gameplay and supports export functionality for 
-		game analytics.
-	</p>
+  <h3>Outcome</h3>
+  <p>
+    {project.outcome}
+  </p>
 
-	<p class="cta">
-		Explore the repository, check out the component architecture, or run the game locally:
-		<a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
-	</p>
+  <p class="cta">
+    {project.cta}
+    <a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
+  </p>
 </ProjectLayout>

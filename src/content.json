@@ -1,0 +1,340 @@
+{
+  "pages": {
+    "home": {
+      "hero": {
+        "name": "Lefteris Evangelinos",
+        "tagline": "Full-Stack Developer & Software Engineer",
+        "bio": "Building scalable backend systems, real-time applications, and automation tools. Passionate about clean architecture, modern web technologies, and solving complex problems with elegant code."
+      },
+      "expertise": {
+        "title": "Technical Expertise",
+        "categories": [
+          {
+            "title": "Backend Development",
+            "skills": [
+              "Node.js & Express",
+              "REST & WebSocket APIs",
+              "MySQL & Sequelize ORM",
+              "JWT Authentication",
+              "Real-time Systems (Socket.IO)"
+            ]
+          },
+          {
+            "title": "DevOps & Tools",
+            "skills": [
+              "Git & Version Control",
+              "Redis Caching",
+              "Firebase Cloud Messaging",
+              "Scheduled Jobs & Automation",
+              "Docker & Deployment"
+            ]
+          },
+          {
+            "title": "Languages & Frameworks",
+            "skills": [
+              "JavaScript/Node.js",
+              "Python",
+              "Astro & Modern Web",
+              "Vue.js",
+              "SQL & Database Design"
+            ]
+          }
+        ]
+      },
+      "featuredProjects": {
+        "title": "Featured Projects",
+        "note": "Note: Due to confidentiality agreements with clients and employers, not all projects I've contributed to can be publicly shared. The projects showcased here represent a selection of my publicly available work that demonstrates my technical capabilities and approach to problem-solving.",
+        "projects": [
+          {
+            "title": "Share the Ride",
+            "description": "Production-ready carpooling platform backend with JWT authentication, real-time chat, notifications, and scheduled maintenance jobs. Built with Node.js, Express, and Socket.IO.",
+            "tags": ["Node.js", "Express", "Socket.IO", "MySQL"]
+          },
+          {
+            "title": "ERT Game Web",
+            "description": "Real-time multiplayer game platform with Express.js backend and Vue 3 frontend. Features round-based gameplay, voting mechanics, admin dashboard, and comprehensive session management.",
+            "tags": ["Vue 3", "TypeScript", "Express", "Real-time"]
+          },
+          {
+            "title": "Python Random Scripts",
+            "description": "Collection of automation utilities and data-wrangling tools showcasing Python best practices, CLI patterns, and practical problem-solving approaches.",
+            "tags": ["Python", "Automation", "CLI Tools", "Data Processing"]
+          }
+        ]
+      },
+      "contactCTA": {
+        "title": "Let's Build Something Together",
+        "description": "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out."
+      }
+    },
+    "about": {
+      "whoIAm": {
+        "title": "Who I Am",
+        "content": "I'm Lefteris Evangelinos, a full-stack developer and software engineer with a passion for building scalable systems and crafting immersive stories. Born in Volos, Greece, with roots in Lavkos and Argalasti in South Pelion, I've always been drawn to both the technical precision of code and the creative freedom of storytelling.",
+        "education": "I studied Computer Engineering at the University of West Attica, where I developed a strong foundation in software architecture, database design, and modern web technologies. My professional work focuses on backend development with Node.js and Express, real-time systems with Socket.IO, and creating intuitive user experiences with Vue.js and TypeScript.",
+        "philosophy": "Core Philosophy: Whether I'm architecting a backend API or developing a fantasy world, I believe in attention to detail, clear structure, and the power of well-crafted systems to create meaningful experiences."
+      },
+      "technicalJourney": {
+        "title": "Technical Journey",
+        "description": "My development work spans multiple domains, from carpooling platforms with multi-language support and real-time chat to multiplayer game applications with comprehensive admin dashboards. I'm particularly interested in:",
+        "interests": [
+          "Backend Architecture: Building RESTful APIs, managing complex data flows, and ensuring system reliability through proper error handling and validation.",
+          "Real-time Systems: Implementing WebSocket communications, managing concurrent users, and creating responsive live experiences.",
+          "Modern Frontend: Crafting type-safe interfaces with Vue 3 and TypeScript, managing application state, and creating accessible user experiences.",
+          "DevOps & Automation: Writing deployment scripts, managing environments, and building tools that streamline development workflows."
+        ],
+        "approach": "I approach every project as an opportunity to learn and refine my craft. From authentication flows and session management to notification systems and scheduled jobs, I'm constantly exploring ways to make systems more robust, maintainable, and user-friendly."
+      },
+      "literaryWork": {
+        "title": "Literary Work",
+        "description": "Beyond the world of code, I'm a published fantasy author with a deep love for epic storytelling. Since childhood, I've been captivated by fantasy literature—works by Robert Jordan and Tolkien shaped my imagination and inspired me to create my own fantastical worlds.",
+        "content": "Through my writing, I explore themes that matter in the real world, weaving my concerns, thoughts, and reflections into narratives that blend heroic adventure with philosophical depth. My stories are not just escapism; they're a mirror reflecting the complexities of our world through the lens of fantasy.",
+        "publishedWorks": {
+          "title": "Published Works",
+          "description": "My main series, \"Το πεπρωμένο του Ραθ\" (The Fate of Rath), is an epic fantasy trilogy published by Συμπαντικές Διαδρομές (Universe Pathways Editions). The series concluded with the release of the third book at the \"Όψεις του Φανταστικού\" (Aspects of the Fantastic) festival.",
+          "books": [
+            {
+              "title": "Το πεπρωμένο του Ραθ",
+              "series": "The Fate of Rath, Book #1",
+              "rating": "⭐ 4.82/5 average rating (17 ratings)"
+            },
+            {
+              "title": "Στις Απαρχές της Δημιουργίας",
+              "series": "The Fate of Rath, Book #2",
+              "rating": "⭐ 4.50/5 average rating (6 ratings)"
+            },
+            {
+              "title": "Το τέκνο της λύτρωσης",
+              "series": "The Fate of Rath, Book #3",
+              "rating": "⭐ 5.00/5 average rating (1 rating)"
+            }
+          ],
+          "otherPublications": {
+            "title": "Other Publications",
+            "description": "In addition to my main series, I've contributed to several anthology collections and collaborative projects in the Greek fantasy community:",
+            "publications": [
+              "Πεφταστέρι – Poetry and short prose collection (4.78/5 rating)",
+              "Larry Niven 2021 & 2022 – Fantasy literature award collections",
+              "Θρύλοι του Σύμπαντος X – Collaborative anthology",
+              "Contributions to \"There Once Was A Myth\", \"Echoes of a Lost Time\", and \"The Path Not Taken\""
+            ]
+          },
+          "influences": {
+            "literary": "Brandon Sanderson, Robert Jordan, J.R.R. Tolkien",
+            "genres": "Epic Fantasy, Heroic Fantasy, Poetry",
+            "themes": "Fate vs. free will, redemption, the cost of power, philosophical reflection"
+          },
+          "goodreads": "I maintain an active presence on Goodreads, where I engage with the fantasy community, share reviews, and connect with fellow readers and writers. My current reading challenge for 2025 aims for 30 books, and I'm particularly enjoying Brandon Sanderson's Stormlight Archive series."
+        }
+      },
+      "bringingItTogether": {
+        "title": "Bringing It All Together",
+        "content": "My dual passions for software development and storytelling inform each other in unexpected ways. The systematic thinking required for coding helps me structure complex narratives, while the creative freedom of writing keeps my problem-solving fresh and innovative.",
+        "approach": "Whether I'm debugging a WebSocket connection or developing a character arc, I approach each challenge with curiosity, discipline, and a commitment to craft. Both fields demand attention to detail, an understanding of structure, and the ability to create systems—whether they're software architectures or fictional worlds—that feel cohesive and alive.",
+        "invitation": "If you'd like to discuss technology, collaborate on a project, or talk about fantasy literature, I'd love to hear from you. Let's create something remarkable together."
+      }
+    },
+    "timeline": {
+      "header": {
+        "title": "My Journey",
+        "description": "Highlights from my software engineering career spanning consulting, product delivery, and hands-on development across web, mobile, and cloud projects."
+      },
+      "milestones": [
+        {
+          "year": "2025",
+          "category": "Career",
+          "title": "Consultant & Software Engineer",
+          "subtitle": "Cognity · Greece",
+          "description": "Drive cross-functional delivery squads that modernize telecom self-care experiences with Vue.js. Partner with product and security teams to launch a React Native mobile banking application with hardened authentication flows and compliance-first data handling.",
+          "tags": ["Vue.js", "React Native", "Mobile Security", "Consulting"]
+        },
+        {
+          "year": "2024",
+          "category": "Product Delivery",
+          "title": "Secure Mobile Banking Rollout",
+          "subtitle": "Enterprise React Native Application",
+          "description": "Designed and implemented end-to-end mobile banking journeys, including secure session management, encrypted data flows, and compliance reporting. Coordinated with auditors to validate controls before production launch.",
+          "tags": ["React Native", "App Security", "CI/CD"]
+        },
+        {
+          "year": "2023",
+          "category": "Digital Platforms",
+          "title": "Telecom Experience Modernization",
+          "subtitle": "Customer Portals & Operations Dashboards",
+          "description": "Rebuilt telecom customer portals in Vue.js with modular UI components, caching strategies, and analytics instrumentation. Delivered operational dashboards that surface real-time KPIs for support teams and partners.",
+          "tags": ["Vue.js", "State Management", "Analytics"]
+        },
+        {
+          "year": "2022",
+          "category": "Startup Engineering",
+          "title": "Ouride Backend Evolution",
+          "subtitle": "Co-founder & Back-end Developer",
+          "description": "Scaled Greece's leading carpooling service with Node.js microservices, JWT-based auth, WebSocket chat, Firebase push notifications, and automated scheduling for ride maintenance windows.",
+          "tags": ["Node.js", "WebSockets", "Firebase", "Startup"]
+        },
+        {
+          "year": "2021",
+          "category": "Research & Delivery",
+          "title": "Cloud Monitoring Platform",
+          "subtitle": "Integrated Master's Thesis",
+          "description": "Built a Docker-based monitoring stack that ingests container logs, powers real-time streaming views, and visualizes health metrics through interactive dashboards. The work seeded follow-up theses within the department.",
+          "tags": ["Docker", "Log Analytics", "Real-time"]
+        },
+        {
+          "year": "2021",
+          "category": "Career",
+          "title": "Web Developer · NetPlanet Greece",
+          "subtitle": "E-commerce & Corporate Sites",
+          "description": "Delivered responsive web experiences using modern JavaScript, ensuring accessibility and SEO alignment for marketing teams. Supported rapid landing page iterations and legacy CMS integrations.",
+          "tags": ["JavaScript", "Ionic", "CMS"]
+        },
+        {
+          "year": "2014-21",
+          "category": "Education",
+          "title": "Informatics & Computer Engineering",
+          "subtitle": "University of West Attica · Integrated Master's",
+          "description": "Completed software-focused studies covering algorithms, distributed systems, database design, and modern web technologies—laying the foundation for full-stack development and solution architecture.",
+          "tags": ["Software Engineering", "Distributed Systems", "Databases"]
+        }
+      ]
+    },
+    "blog": {
+      "posts": [
+        {
+          "title": "First post",
+          "description": "Lorem ipsum dolor sit amet",
+          "pubDate": "Jul 08 2022",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet. Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi. Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna."
+        },
+        {
+          "title": "Third post",
+          "description": "Lorem ipsum dolor sit amet",
+          "pubDate": "Jul 22 2022",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet. Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi. Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna."
+        },
+        {
+          "title": "Markdown Style Guide",
+          "description": "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.",
+          "pubDate": "Jun 19 2024",
+          "content": "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro. ## Headings The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest. # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ## Paragraph Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat. Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat. ## Images ### Syntax ```markdown ![Alt text](./full/or/relative/path/of/image) ``` ### Output ![blog placeholder](../../assets/blog-placeholder-about.jpg) ## Blockquotes The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations. ### Blockquote without attribution #### Syntax ```markdown > Tiam, ad mint andaepu dandae nostion secatur sequo quae.   > **Note** that you can use _Markdown syntax_ within a blockquote. ``` #### Output > Tiam, ad mint andaepu dandae nostion secatur sequo quae.   > **Note** that you can use _Markdown syntax_ within a blockquote. ### Blockquote with attribution #### Syntax ```markdown > Don't communicate by sharing memory, share memory by communicating.<br> > — <cite>Rob Pike[^1]</cite> ``` #### Output > Don't communicate by sharing memory, share memory by communicating.<br> > — <cite>Rob Pike[^1]</cite> [^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015. ## Tables ### Syntax ```markdown | Italics   | Bold     | Code   | | --------- | -------- | ------ | | _italics_ | **bold** | `code` | ``` ### Output | Italics   | Bold     | Code   | | --------- | -------- | ------ | | _italics_ | **bold** | `code` | ## Code Blocks ### Syntax we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash ````markdown ```html <!doctype html> <html lang=\"en\">   <head>     <meta charset=\"utf-8\" />     <title>Example HTML5 Document</title>   </head>   <body>     <p>Test</p>   </body> </html> ``` ```` ### Output ```html <!doctype html> <html lang=\"en\">   <head>     <meta charset=\"utf-8\" />     <title>Example HTML5 Document</title>   </head>   <body>     <p>Test</p>   </body> </html> ``` ## List Types ### Ordered List #### Syntax ```markdown 1. First item 2. Second item 3. Third item ``` #### Output 1. First item 2. Second item 3. Third item ### Unordered List #### Syntax ```markdown - List item - Another item - And another item ``` #### Output - List item - Another item - And another item ### Nested list #### Syntax ```markdown - Fruit   - Apple   - Orange   - Banana - Dairy   - Milk   - Cheese ``` #### Output - Fruit   - Apple   - Orange   - Banana - Dairy   - Milk   - Cheese ## Other Elements — abbr, sub, sup, kbd, mark ### Syntax ```markdown <abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format. H<sub>2</sub>O X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup> Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session. Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures. ``` ### Output <abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format. H<sub>2</sub>O X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup> Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session. Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures."
+        },
+        {
+          "title": "Using MDX",
+          "description": "Lorem ipsum dolor sit amet",
+          "pubDate": "Jun 01 2024",
+          "content": "This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file. ## Why MDX? MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts. If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze. ## Example Here is how you import and use a UI component inside of MDX.   When you open this page in the browser, you should see the clickable button below. import HeaderLink from '../../components/HeaderLink.astro'; <HeaderLink href=\"#\" onclick=\"alert('clicked!')\"> Embedded component in MDX </HeaderLink> ## More Links - [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx) - [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages) - **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default."
+        }
+      ]
+    },
+    "projects": {
+      "share-the-ride": {
+        "title": "Share the Ride Backend",
+        "description": "Share is the production-ready Node.js and Express service behind the \"Share the Ride\" carpooling platform, delivering secure REST and WebSocket experiences for riders and drivers.",
+        "highlights": [
+          {
+            "title": "Production Ready",
+            "content": "Multi-region deployments with environment-aware configuration, rate limiting, and zero-downtime releases keep commuter traffic flowing."
+          },
+          {
+            "title": "Secure by Design",
+            "content": "Tenant-aware JWT flows, audit trails, and encryption utilities give riders and drivers credible trust guarantees."
+          },
+          {
+            "title": "Observability",
+            "content": "Centralized logging, Grafana dashboards, and synthetic health probes surface issues long before users notice."
+          }
+        ],
+        "whatIBuilt": "I designed and implemented a layered backend that keeps the platform reliable and responsive. It orchestrates authentication, ride workflows, chat, notifications, and scheduled maintenance jobs while staying adaptable to feature requests from product and mobile teams.",
+        "metrics": [
+          { "value": "1k+", "label": "Rides posted" },
+          { "value": "<150ms", "label": "Median API response" },
+          { "value": "0 dn", "label": "During release" }
+        ],
+        "features": [
+          "JWT-secured APIs covering posts, interests, reviews, and rider onboarding.",
+          "Real-time Socket.IO messaging with optional AES encryption and Firebase fallback alerts.",
+          "Daily jobs that archive stale posts, refresh ride statistics, and prune expired conversations."
+        ],
+        "architecture": "The service follows a clear separation of concerns: Express routers feed thin controllers, business logic lives in domain services, and Sequelize modules handle data access for MySQL. Shared utilities cover localization, notifications, and encryption so each feature team has consistent building blocks.",
+        "stack": {
+          "core": "Node.js, Express 4, Socket.IO, Sequelize, MySQL",
+          "messagingAuth": "JWT, Firebase Cloud Messaging, Redis (optional), Nodemailer",
+          "operational": "node-schedule jobs, Docker-ready configuration, REST client collections"
+        },
+        "outcome": "Share has supported multi-language trip planning across web and mobile clients since launch. The backend scales comfortably on Node 16+, keeps ride data fresh with automated pruning, and provides a single source of truth for notifications and chat history.",
+        "cta": "Interested in the technical deep dive or API coverage? Let's chat about the architecture decisions and how they can translate to your next mobility project."
+      },
+      "ert-game-web": {
+        "title": "ERT Game Web",
+        "description": "A real-time multiplayer game platform where players submit answers, vote on responses, and compete for points. Built with Express.js, Vue 3, TypeScript, and featuring comprehensive admin controls and session management.",
+        "highlights": [
+          {
+            "title": "Party Ready",
+            "content": "Sessions spin up in seconds with QR join codes, responsive layouts, and soundtrack support for a couch-friendly trivia experience."
+          },
+          {
+            "title": "Host Controls",
+            "content": "Admins orchestrate rounds, tweak scoring, and broadcast announcements with guardrails for multiplayer fairness."
+          },
+          {
+            "title": "Analytics",
+            "content": "Game exports and dashboards track engagement, highlight best answers, and inform future content drops."
+          }
+        ],
+        "whatIBuilt": "ERT Game is a complete full-stack application that demonstrates modern web development practices. The platform supports multiple players simultaneously, real-time game state management, and provides both player and administrator interfaces with distinct workflows.",
+        "metrics": [
+          { "value": "6+", "label": "Concurrent players per match" },
+          { "value": "99.9%", "label": "WebSocket uptime in tests" },
+          { "value": "10 min", "label": "Fresh install to first game" }
+        ],
+        "features": [
+          "Real-time multiplayer gameplay with round-based question-answer mechanics.",
+          "Dual-interface design: streamlined player view and comprehensive admin dashboard.",
+          "Session management with voting system, point tracking, and game history exports.",
+          "Automated installation scripts for Windows (PowerShell) and Linux/macOS (Bash).",
+          "RESTful API with health checks, CORS configuration, and proper error handling."
+        ],
+        "architecture": "The backend runs on Express.js with JSON file-based persistence for session data and round status. The Vue 3 frontend leverages TypeScript, Pinia state management, and modern Sass modules for styling. Component organization follows domain-driven principles, separating player, admin, and shared UI elements.",
+        "stack": {
+          "backend": "Node.js, Express, RESTful APIs, JSON persistence",
+          "frontend": "Vue 3, TypeScript, Vite, Pinia, Sass modules",
+          "devops": "Automated installers, environment detection, health checks"
+        },
+        "apiHighlights": "The server exposes comprehensive endpoints for session management, round status tracking, and player operations including joining, answering, voting, and point updates. All routes return consistent JSON responses with proper HTTP status codes.",
+        "outcome": "The application has been deployed and tested across different environments. The installer scripts detect IP addresses automatically and configure both server and client for immediate use. The architecture scales comfortably for local network gameplay and supports export functionality for game analytics.",
+        "cta": "Explore the repository, check out the component architecture, or run the game locally."
+      },
+      "python-random-scripts": {
+        "title": "Python Random Scripts",
+        "description": "A living collection of small Python utilities where I explore everyday automation, quick data experiments, and CLI helpers. Each script solves a specific problem and doubles as a playground for sharpening language features and third-party packages.",
+        "highlights": [
+          {
+            "title": "Automation",
+            "content": "From renaming media libraries to posting daily digests, these jobs showcase how cron-friendly Python scripts tame repetitive work."
+          },
+          {
+            "title": "Data Experiments",
+            "content": "Lightweight notebooks and CLI parsers that clean CSV batches, reshape JSON, and visualize quick stats with pandas and Rich."
+          },
+          {
+            "title": "Developer Tools",
+            "content": "Terminal helpers, template generators, and git-aware utilities that improve day-to-day workflows for collaborating teams."
+          }
+        ],
+        "whatLivesInTheRepo": "The repository is intentionally eclectic: batch file renamers, API data fetchers, CSV cleaners, and shell-friendly tooling. It is where ideas start lightweight before they grow into standalone services or libraries.",
+        "metrics": [
+          { "value": "10+", "label": "Scripts maintained" },
+          { "value": "5 min", "label": "Average setup time" },
+          { "value": "12", "label": "Libraries explored" }
+        ],
+        "features": [
+          "Hands-on automation scripts for file management, notifications, and workflow shortcuts.",
+          "Data wrangling helpers that tidy CSV and JSON payloads with pandas and native tooling.",
+          "Command-line experiments that showcase argparse patterns, logging, and packaging basics."
+        ],
+        "whyItMatters": "Keeping a sandbox like this lets me iterate quickly, try new libraries, and carry working patterns into production projects. It also gives collaborators tangible, copy-ready snippets for their own use cases.",
+        "cta": "Browse the scripts, star the repository, or open an issue with your own automation idea."
+      }
+    }
+  }
+}

@@ -1,65 +1,56 @@
 ---
-import ProjectLayout from '../../../components/ProjectLayout.astro';
-import BubbleGrid from '../../../components/BubbleGrid.astro';
-import Bubble from '../../../components/Bubble.astro';
-import MetricGrid from '../../../components/MetricGrid.astro';
-import Metric from '../../../components/Metric.astro';
+import content from "../../../content.json";
+import ProjectLayout from "../../../components/ProjectLayout.astro";
+import BubbleGrid from "../../../components/BubbleGrid.astro";
+import Bubble from "../../../components/Bubble.astro";
+import MetricGrid from "../../../components/MetricGrid.astro";
+import Metric from "../../../components/Metric.astro";
 
-const pageTitle = 'Python Random Scripts';
-const pageDescription = 'A living collection of small Python utilities where I explore everyday automation, quick data experiments, and CLI helpers. Each script solves a specific problem and doubles as a playground for sharpening language features and third-party packages.';
-const repoUrl = 'https://github.com/lefos13/python-random-scripts';
+const project = content.pages.projects["python-random-scripts"];
+const pageTitle = project.title;
+const pageDescription = project.description;
+const repoUrl = "https://github.com/lefos13/python-random-scripts";
 ---
 
-<ProjectLayout 
-	title={pageTitle} 
-	description={pageDescription} 
-	repoUrl={repoUrl}
-	theme="purple"
+<ProjectLayout
+  title={pageTitle}
+  description={pageDescription}
+  repoUrl={repoUrl}
+  theme="purple"
 >
-	<BubbleGrid ariaLabel="Script categories" theme="purple">
-		<Bubble title="Automation">
-			From renaming media libraries to posting daily digests, these jobs showcase how cron-friendly
-			Python scripts tame repetitive work.
-		</Bubble>
-		<Bubble title="Data Experiments">
-			Lightweight notebooks and CLI parsers that clean CSV batches, reshape JSON, and visualize quick
-			stats with pandas and Rich.
-		</Bubble>
-		<Bubble title="Developer Tools">
-			Terminal helpers, template generators, and git-aware utilities that improve day-to-day workflows
-			for collaborating teams.
-		</Bubble>
-	</BubbleGrid>
+  <BubbleGrid ariaLabel="Script categories" theme="purple">
+    {
+      project.highlights.map((highlight) => (
+        <Bubble title={highlight.title}>{highlight.content}</Bubble>
+      ))
+    }
+  </BubbleGrid>
 
-	<h2>What Lives in the Repo</h2>
-	<p>
-		The repository is intentionally eclectic: batch file renamers, API data fetchers, CSV cleaners, and
-		shell-friendly tooling. It is where ideas start lightweight before they grow into standalone
-		services or libraries.
-	</p>
+  <h2>What Lives in the Repo</h2>
+  <p>
+    {project.whatLivesInTheRepo}
+  </p>
 
-	<MetricGrid theme="purple">
-		<Metric value="10+" label="Scripts maintained" />
-		<Metric value="5 min" label="Average setup time" />
-		<Metric value="12" label="Libraries explored" />
-	</MetricGrid>
+  <MetricGrid theme="purple">
+    {
+      project.metrics.map((metric) => (
+        <Metric value={metric.value} label={metric.label} />
+      ))
+    }
+  </MetricGrid>
 
-	<h3 id="highlights">Highlights</h3>
-	<ul>
-		<li>Hands-on automation scripts for file management, notifications, and workflow shortcuts.</li>
-		<li>Data wrangling helpers that tidy CSV and JSON payloads with pandas and native tooling.</li>
-		<li>Command-line experiments that showcase argparse patterns, logging, and packaging basics.</li>
-	</ul>
+  <h3 id="highlights">Highlights</h3>
+  <ul>
+    {project.features.map((feature) => <li>{feature}</li>)}
+  </ul>
 
-	<h3>Why It Matters</h3>
-	<p>
-		Keeping a sandbox like this lets me iterate quickly, try new libraries, and carry working patterns
-		into production projects. It also gives collaborators tangible, copy-ready snippets for their own
-		use cases.
-	</p>
+  <h3>Why It Matters</h3>
+  <p>
+    {project.whyItMatters}
+  </p>
 
-	<p class="cta">
-		Browse the scripts, star the repository, or open an issue with your own automation idea:
-		<a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
-	</p>
+  <p class="cta">
+    {project.cta}
+    <a href={repoUrl} target="_blank" rel="noopener">{repoUrl}</a>.
+  </p>
 </ProjectLayout>

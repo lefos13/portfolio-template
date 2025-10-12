@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE, BASE_URI } from "../consts";
+import content from "../content.json";
 ---
 
 <!doctype html>
@@ -22,12 +23,10 @@ import { SITE_DESCRIPTION, SITE_TITLE, BASE_URI } from "../consts";
               class="avatar"
             />
           </div>
-          <h1 class="name">Lefteris Evangelinos</h1>
-          <p class="tagline">Full-Stack Developer & Software Engineer</p>
+          <h1 class="name">{content.pages.home.hero.name}</h1>
+          <p class="tagline">{content.pages.home.hero.tagline}</p>
           <p class="bio">
-            Building scalable backend systems, real-time applications, and
-            automation tools. Passionate about clean architecture, modern web
-            technologies, and solving complex problems with elegant code.
+            {content.pages.home.hero.bio}
           </p>
           <div class="cta-buttons">
             <!-- <a href="/projects/share-the-ride" class="btn btn-primary">View Projects</a> -->
@@ -48,111 +47,55 @@ import { SITE_DESCRIPTION, SITE_TITLE, BASE_URI } from "../consts";
       </section>
 
       <section class="expertise">
-        <h2>Technical Expertise</h2>
+        <h2>{content.pages.home.expertise.title}</h2>
         <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Backend Development</h3>
-            <ul>
-              <li>Node.js & Express</li>
-              <li>REST & WebSocket APIs</li>
-              <li>MySQL & Sequelize ORM</li>
-              <li>JWT Authentication</li>
-              <li>Real-time Systems (Socket.IO)</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>DevOps & Tools</h3>
-            <ul>
-              <li>Git & Version Control</li>
-              <li>Redis Caching</li>
-              <li>Firebase Cloud Messaging</li>
-              <li>Scheduled Jobs & Automation</li>
-              <li>Docker & Deployment</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>Languages & Frameworks</h3>
-            <ul>
-              <li>JavaScript/Node.js</li>
-              <li>Python</li>
-              <li>Astro & Modern Web</li>
-              <li>Vue.js</li>
-              <li>SQL & Database Design</li>
-            </ul>
-          </div>
+          {
+            content.pages.home.expertise.categories.map((category) => (
+              <div class="skill-category">
+                <h3>{category.title}</h3>
+                <ul>
+                  {category.skills.map((skill) => (
+                    <li>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
         </div>
       </section>
 
       <section class="featured-projects">
-        <h2>Featured Projects</h2>
+        <h2>{content.pages.home.featuredProjects.title}</h2>
         <p class="projects-note">
-          Note: Due to confidentiality agreements with clients and employers,
-          not all projects I've contributed to can be publicly shared. The
-          projects showcased here represent a selection of my publicly available
-          work that demonstrates my technical capabilities and approach to
-          problem-solving.
+          {content.pages.home.featuredProjects.note}
         </p>
         <div class="projects-grid">
-          <article class="project-card">
-            <h3>Share the Ride</h3>
-            <p class="project-description">
-              Production-ready carpooling platform backend with JWT
-              authentication, real-time chat, notifications, and scheduled
-              maintenance jobs. Built with Node.js, Express, and Socket.IO.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">Socket.IO</span>
-              <span class="tag">MySQL</span>
-            </div>
-            <a href="/projects/share-the-ride" class="project-link"
-              >Learn More →</a
-            >
-          </article>
-          <article class="project-card">
-            <h3>ERT Game Web</h3>
-            <p class="project-description">
-              Real-time multiplayer game platform with Express.js backend and
-              Vue 3 frontend. Features round-based gameplay, voting mechanics,
-              admin dashboard, and comprehensive session management.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Vue 3</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Express</span>
-              <span class="tag">Real-time</span>
-            </div>
-            <a href="/projects/ert-game-web" class="project-link"
-              >Learn More →</a
-            >
-          </article>
-          <article class="project-card">
-            <h3>Python Random Scripts</h3>
-            <p class="project-description">
-              Collection of automation utilities and data-wrangling tools
-              showcasing Python best practices, CLI patterns, and practical
-              problem-solving approaches.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Automation</span>
-              <span class="tag">CLI Tools</span>
-              <span class="tag">Data Processing</span>
-            </div>
-            <a href="/projects/python-random-scripts" class="project-link"
-              >Learn More →</a
-            >
-          </article>
+          {
+            content.pages.home.featuredProjects.projects.map((project) => (
+              <article class="project-card">
+                <h3>{project.title}</h3>
+                <p class="project-description">{project.description}</p>
+                <div class="project-tags">
+                  {project.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <a
+                  href={`/projects/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  class="project-link"
+                >
+                  Learn More →
+                </a>
+              </article>
+            ))
+          }
         </div>
       </section>
 
       <section class="contact-cta">
-        <h2>Let's Build Something Together</h2>
+        <h2>{content.pages.home.contactCTA.title}</h2>
         <p>
-          I'm always interested in hearing about new projects and opportunities.
-          Whether you have a question or just want to say hi, feel free to reach
-          out.
+          {content.pages.home.contactCTA.description}
         </p>
         <a href={`${BASE_URI}/about`} class="btn btn-primary">Get in Touch</a>
       </section>
