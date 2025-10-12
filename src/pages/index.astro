@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE, BASE_URI } from "../consts";
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         <div class="hero-content">
           <div class="avatar-container">
             <img
-              src="/images/avatar.jpg"
+              src={`${BASE_URI}/images/avatar.jpg`}
               alt="Lefteris Evangelinos"
               class="avatar"
             />
@@ -154,7 +154,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           Whether you have a question or just want to say hi, feel free to reach
           out.
         </p>
-        <a href="/about" class="btn btn-primary">Get in Touch</a>
+        <a href={`${BASE_URI}/about`} class="btn btn-primary">Get in Touch</a>
       </section>
     </main>
     <Footer />

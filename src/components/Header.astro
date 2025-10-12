@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, BASE_URI } from "../consts";
 import {
   Button,
   Link,
@@ -10,7 +10,7 @@ import {
 
 <header>
   <nav>
-    <h2><Link href="/">{SITE_TITLE}</Link></h2>
+    <h2><Link href={`${BASE_URI}/`}>{SITE_TITLE}</Link></h2>
     <Button
       class="mobile-menu-toggle"
       ariaLabel="Toggle navigation menu"
@@ -20,17 +20,21 @@ import {
     </Button>
     <div class="nav-container">
       <div class="internal-links">
-        <Link href="/">Home</Link>
-        <Link href="/timeline">Timeline</Link>
-        <Link href="/about">About</Link>
+        <Link href={`${BASE_URI}/`}>Home</Link>
+        <Link href={`${BASE_URI}/timeline`}>Timeline</Link>
+        <Link href={`${BASE_URI}/about`}>About</Link>
         <div class="dropdown desktop-only">
           <span class="dropdown-label"
             >Projects <span class="arrow">▾</span></span
           >
           <div class="dropdown-content">
-            <Link href="/projects/share-the-ride">Share the Ride</Link>
-            <Link href="/projects/ert-game-web">ERT Game Web</Link>
-            <Link href="/projects/python-random-scripts">Python Scripts</Link>
+            <Link href={`${BASE_URI}/projects/share-the-ride`}
+              >Share the Ride</Link
+            >
+            <Link href={`${BASE_URI}/projects/ert-game-web`}>ERT Game Web</Link>
+            <Link href={`${BASE_URI}/projects/python-random-scripts`}
+              >Python Scripts</Link
+            >
           </div>
         </div>
         <Accordion class="mobile-only">
@@ -41,9 +45,15 @@ import {
             headingSize="h6"
           >
             <ul class="accordion-links">
-              <Link href="/projects/share-the-ride">Share the Ride</Link>
-              <Link href="/projects/ert-game-web">ERT Game Web</Link>
-              <Link href="/projects/python-random-scripts">Python Scripts</Link>
+              <Link href={`${BASE_URI}/projects/share-the-ride`}
+                >Share the Ride</Link
+              >
+              <Link href={`${BASE_URI}/projects/ert-game-web`}
+                >ERT Game Web</Link
+              >
+              <Link href={`${BASE_URI}/projects/python-random-scripts`}
+                >Python Scripts</Link
+              >
             </ul>
           </AccordionItem>
         </Accordion>
