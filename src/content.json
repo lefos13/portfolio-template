@@ -13,6 +13,7 @@
             "title": "Backend Development",
             "skills": [
               "Node.js & Express",
+              "NestJS & TypeScript",
               "REST & WebSocket APIs",
               "MySQL & Sequelize ORM",
               "JWT Authentication",
@@ -25,6 +26,7 @@
               "Git & Version Control",
               "Redis Caching",
               "Firebase Cloud Messaging",
+              "Prometheus & Sentry",
               "Scheduled Jobs & Automation",
               "Docker & Deployment"
             ]
@@ -45,6 +47,11 @@
         "title": "Featured Projects",
         "note": "Note: Due to confidentiality agreements with clients and employers, not all projects I've contributed to can be publicly shared. The projects showcased here represent a selection of my publicly available work that demonstrates my technical capabilities and approach to problem-solving.",
         "projects": [
+          {
+            "title": "NestJS Backend Template",
+            "description": "Production-ready NestJS template with JWT authentication, Swagger documentation, Prometheus metrics, Sentry error tracking, and comprehensive security features. Built with TypeScript and modern best practices.",
+            "tags": ["NestJS", "TypeScript", "Prometheus", "Swagger"]
+          },
           {
             "title": "Share the Ride",
             "description": "Production-ready carpooling platform backend with JWT authentication, real-time chat, notifications, and scheduled maintenance jobs. Built with Node.js, Express, and Socket.IO.",
@@ -227,6 +234,51 @@
       ]
     },
     "projects": {
+      "nestjs-backend-template": {
+        "title": "NestJS Backend Template",
+        "description": "A robust, production-ready NestJS template that emphasizes clean architecture, security, and developer experience. Out of the box you get JWT authentication, Swagger documentation, structured logging, Prometheus metrics, and comprehensive error tracking.",
+        "highlights": [
+          {
+            "title": "Security First",
+            "content": "JWT authentication, Helmet security headers, CORS configuration, rate limiting, and validated environment configuration protect every endpoint from day one."
+          },
+          {
+            "title": "Observable",
+            "content": "Structured Pino logging, Kubernetes-ready health probes, Prometheus metrics, and Sentry error tracking give teams complete visibility into service behavior."
+          },
+          {
+            "title": "Developer Ready",
+            "content": "Interactive Swagger documentation, pre-configured linting with Husky hooks, REST Client collections, and TypeScript strict mode make iteration fast and safe."
+          }
+        ],
+        "whatIBuilt": "I created a comprehensive NestJS template that serves as a solid foundation for any backend service. It removes the boilerplate of setting up authentication, observability, security, and documentation so teams can focus on business logic from day one. The template emphasizes sensible defaults and production-grade patterns.",
+        "metrics": [
+          { "value": "JWT", "label": "Auth built-in" },
+          { "value": "3 types", "label": "Health probes" },
+          { "value": "<30s", "label": "Setup to dev" }
+        ],
+        "features": [
+          "JWT-based authentication with guards and utilities for protected routes.",
+          "Interactive Swagger/OpenAPI documentation at /api-docs with schema validation.",
+          "Kubernetes-ready health checks: comprehensive, liveness, and readiness probes.",
+          "Prometheus-compatible metrics endpoint for monitoring and alerting.",
+          "Structured JSON logging with Pino for high-performance observability.",
+          "Sentry integration for production error tracking and alerting.",
+          "Pre-commit hooks with Husky for automated linting and formatting.",
+          "Global validation pipes with class-validator for consistent request validation.",
+          "URI-based API versioning for backward-compatible evolution.",
+          "Security hardening with Helmet, CORS, and rate limiting configured."
+        ],
+        "architecture": "The template follows NestJS module architecture with clear separation of concerns. Authentication logic lives in dedicated guards and decorators, configuration validation happens at startup with class-validator, and middleware layers handle security, logging, and error transformation consistently across all endpoints.",
+        "stack": {
+          "core": "NestJS, TypeScript (strict mode), Node.js 16+, Express adapter",
+          "security": "JWT, Helmet, CORS, Rate limiting, class-validator, Global exception filters",
+          "observability": "Pino structured logging, Prometheus metrics, Health checks (Terminus), Sentry error tracking, Swagger/OpenAPI documentation"
+        },
+        "devExperience": "The template ships with comprehensive tooling for developer productivity. Husky pre-commit hooks automatically lint and format code before commits, preventing style drift. REST Client files and Postman collections let developers test endpoints without leaving their editor. TypeScript strict mode catches issues at compile time, and Swagger documentation stays in sync with code through decorators.",
+        "outcome": "This template has been battle-tested across multiple projects and provides a strong foundation for building production services. It eliminates weeks of setup time, enforces best practices through automation, and gives teams immediate visibility into service health. The modular structure makes it easy to extend while maintaining consistency.",
+        "cta": "Check out the template, read the comprehensive documentation, or use it as a starting point for your next backend service."
+      },
       "share-the-ride": {
         "title": "Share the Ride Backend",
         "description": "Share is the production-ready Node.js and Express service behind the \"Share the Ride\" carpooling platform, delivering secure REST and WebSocket experiences for riders and drivers.",
