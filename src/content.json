@@ -66,6 +66,11 @@
             "title": "Python Random Scripts",
             "description": "Collection of automation utilities and data-wrangling tools showcasing Python best practices, CLI patterns, and practical problem-solving approaches.",
             "tags": ["Python", "Automation", "CLI Tools", "Data Processing"]
+          },
+          {
+            "title": "SEO Optimizer",
+            "description": "Standalone desktop SEO analysis and optimization tool with 13 SEO rules, 17 mini-services for keyword analysis, readability scoring, and content optimization. Built with Electron, React, and SQLite.",
+            "tags": ["Electron", "React", "TypeScript", "SEO Analysis"]
           }
         ]
       },
@@ -386,6 +391,56 @@
         ],
         "whyItMatters": "Keeping a sandbox like this lets me iterate quickly, try new libraries, and carry working patterns into production projects. It also gives collaborators tangible, copy-ready snippets for their own use cases.",
         "cta": "Browse the scripts, star the repository, or open an issue with your own automation idea."
+      },
+      "seo-optimizer": {
+        "title": "SEO Optimizer",
+        "description": "A standalone desktop SEO analysis and optimization tool built with Electron, React, and SQLite. Features comprehensive SEO analysis engine with 13 rules, 17 mini-services for keyword analysis, readability scoring, and content optimization.",
+        "highlights": [
+          {
+            "title": "Comprehensive Analysis",
+            "content": "13 SEO rules across 4 categories (meta, content, technical, readability) with weighted scoring system and letter grade assessment (A-F) for actionable insights."
+          },
+          {
+            "title": "17 Mini-Services",
+            "content": "Keyword services (density, long-tail generation, difficulty estimation, clustering, LSI), readability services (multi-formula scoring, improvement suggestions), and content optimization tools (structure analysis, link recommendations)."
+          },
+          {
+            "title": "Desktop Application",
+            "content": "Standalone Electron app with React frontend, SQLite database, secure IPC communication, and dark theme UI. Works offline with local data storage."
+          }
+        ],
+        "whatIBuilt": "I built a complete desktop SEO analysis tool that provides comprehensive on-page SEO auditing and optimization recommendations. The application combines multiple analysis engines into a unified interface, making it easy for content creators and SEO professionals to evaluate and improve their web content. Note: This project was an experimental implementation using AI-assisted coding techniques with minimal code review, serving as a learning exercise in rapid prototyping and exploring modern development workflows.",
+        "metrics": [
+          { "value": "13", "label": "SEO rules" },
+          { "value": "17", "label": "Mini-services" },
+          { "value": "2", "label": "Languages supported" }
+        ],
+        "features": [
+          "SEO analysis engine with 13 rules across meta tags, content quality, technical SEO, and readability.",
+          "Weighted scoring system (0-100%) with letter grade assessment (A-F) and detailed issue reporting.",
+          "Keyword density analyzer with real-time visualization and density tracking.",
+          "Long-tail keyword generator for discovering low-competition opportunities.",
+          "Keyword difficulty estimator and clustering tools for competitive analysis.",
+          "LSI keyword generator for finding semantically related terms.",
+          "Readability analysis with multiple formulas (Flesch Reading Ease, etc.) and grade level assessment.",
+          "Content structure analyzer for headings, paragraphs, lists, and media optimization.",
+          "Internal link recommender with anchor text analysis.",
+          "Content length optimizer with type-specific recommendations.",
+          "Content gap analyzer for topic coverage and depth analysis.",
+          "Competitive content analyzer to compare against top-ranking pages.",
+          "Multi-language support (English & Greek) with language-specific readability rules.",
+          "SQLite database for storing analysis history and reports.",
+          "Secure Electron architecture with context isolation and secure IPC communication."
+        ],
+        "architecture": "The application follows a three-process Electron architecture: main process handles database operations and SEO analysis logic, renderer process contains the React UI with component-based architecture, and preload script provides secure IPC bridge. The SEO analyzer module contains all analysis engines, while mini-services are organized into keyword, readability, and content optimization categories. SQLite stores analysis history and reports locally.",
+        "stack": {
+          "core": "Electron, React, TypeScript, SQLite",
+          "frontend": "React with SASS modules, dark theme UI, component-based architecture",
+          "backend": "Node.js, Electron main process, SQLite database, IPC handlers, SEO analyzer engine, HTML parser, keyword services, readability services, content services"
+        },
+        "devExperience": "The project includes comprehensive development tooling with webpack for bundling main, preload, and renderer processes separately. TypeScript strict mode ensures type safety, ESLint and Prettier maintain code quality, and Husky pre-commit hooks automate quality checks. The modular architecture allows easy extension of analysis rules and services.",
+        "outcome": "SEO Optimizer provides a complete desktop solution for SEO analysis without requiring internet connectivity or external services. The 17 mini-services cover the full spectrum of on-page SEO optimization, from keyword research to content structure analysis. The application has been refactored to use standardized component patterns, reducing boilerplate code by approximately 25-30% while maintaining all functionality.",
+        "cta": "Explore the repository, check out the comprehensive documentation, or use it to analyze and optimize your web content."
       }
     }
   }
