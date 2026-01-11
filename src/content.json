@@ -71,6 +71,11 @@
             "title": "SEO Optimizer",
             "description": "Standalone desktop SEO analysis and optimization tool with 13 SEO rules, 17 mini-services for keyword analysis, readability scoring, and content optimization. Built with Electron, React, and SQLite.",
             "tags": ["Electron", "React", "TypeScript", "SEO Analysis"]
+          },
+          {
+            "title": "Editopia",
+            "description": "Professional portfolio website for an editor, translator, and book reviewer. Modern, responsive design with Vue, optimized for SEO and showcasing editorial services.",
+            "tags": ["Vue", "TypeScript", "Portfolio", "SEO"]
           }
         ]
       },
@@ -441,6 +446,49 @@
         "devExperience": "The project includes comprehensive development tooling with webpack for bundling main, preload, and renderer processes separately. TypeScript strict mode ensures type safety, ESLint and Prettier maintain code quality, and Husky pre-commit hooks automate quality checks. The modular architecture allows easy extension of analysis rules and services.",
         "outcome": "SEO Optimizer provides a complete desktop solution for SEO analysis without requiring internet connectivity or external services. The 17 mini-services cover the full spectrum of on-page SEO optimization, from keyword research to content structure analysis. The application has been refactored to use standardized component patterns, reducing boilerplate code by approximately 25-30% while maintaining all functionality.",
         "cta": "Explore the repository, check out the comprehensive documentation, or use it to analyze and optimize your web content."
+      },
+      "editopia": {
+        "title": "Editopia",
+        "description": "A professional portfolio website crafted for an editor, translator, and book reviewer. Built with modern web technologies to showcase editorial expertise, translation services, and published works with elegant design and optimal performance.",
+        "highlights": [
+          {
+            "title": "Modern Stack",
+            "content": "Built with Vue.js for lightning-fast performance, TypeScript for type safety, and modern CSS techniques for a polished, responsive design across all devices."
+          },
+          {
+            "title": "SEO Optimized",
+            "content": "Comprehensive SEO implementation, optimized meta tags, structured data, and fast loading times to maximize visibility in search results."
+          },
+          {
+            "title": "Professional Showcase",
+            "content": "Clean, elegant design that highlights editorial services, translation portfolio, book reviews, and professional credentials in an engaging presentation."
+          }
+        ],
+        "whatIBuilt": "I designed and developed a complete professional portfolio website for an editor, translator, and book reviewer. The site serves as a digital business card and portfolio, showcasing editorial services, translation work, and published book reviews. The focus was on creating an elegant, fast-loading experience that reflects the professionalism of the editorial industry while being easy to maintain and update.",
+        "metrics": [
+          { "value": "100", "label": "Lighthouse Performance" },
+          { "value": "<1s", "label": "Load Time" },
+          { "value": "A+", "label": "SEO Score" }
+        ],
+        "features": [
+          "Responsive design optimized for desktop, tablet, and mobile viewing experiences.",
+          "Fast static site generation with Vue, vite-ssg for optimal performance and SEO.",
+          "Professional service showcase for editing, translation, and book review services.",
+          "Portfolio section highlighting completed editorial and translation projects.",
+          "Contact integration for potential clients to easily reach out.",
+          "Optimized images and assets for fast loading across all connection speeds.",
+          "Semantic HTML structure for accessibility and search engine optimization.",
+          "Modern typography and clean layout reflecting editorial professionalism."
+        ],
+        "architecture": "The website is built using Vue.js architecture with TypeScript for type safety. Static site generation ensures fast load times and excellent SEO performance. The design follows modern web standards with CSS custom properties for theming, responsive layouts using CSS Grid and Flexbox, and optimized asset delivery.",
+        "stack": {
+          "core": "Vue, TypeScript, HTML5, CSS3",
+          "styling": "Modern CSS with custom properties, responsive design, CSS Grid & Flexbox",
+          "deployment": "GitHub Pages, optimized static assets, automated builds"
+        },
+        "devExperience": "The project emphasizes maintainability with a clean component structure, making it easy to update content and add new portfolio items. TypeScript ensures type safety throughout the codebase, and the Vue build process optimizes all assets for production deployment.",
+        "outcome": "Editopia successfully launched as a professional online presence for editorial services. The fast-loading, SEO-optimized site provides an excellent foundation for attracting new clients and showcasing professional work in the publishing industry.",
+        "cta": "Visit the live website to see the portfolio in action and explore how modern web technologies can elevate professional service presentations."
       }
     }
   }

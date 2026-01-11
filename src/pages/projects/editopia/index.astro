@@ -1,0 +1,145 @@
+---
+import content from "../../../content.json";
+import ProjectLayout from "../../../components/ProjectLayout.astro";
+import BubbleGrid from "../../../components/BubbleGrid.astro";
+import Bubble from "../../../components/Bubble.astro";
+import MetricGrid from "../../../components/MetricGrid.astro";
+import Metric from "../../../components/Metric.astro";
+import StackGrid from "../../../components/StackGrid.astro";
+
+const project = content.pages.projects["editopia"];
+const pageTitle = project.title;
+const pageDescription = project.description;
+const websiteUrl = "https://editopia.gr/";
+const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
+---
+
+<ProjectLayout
+  title={pageTitle}
+  description={pageDescription}
+  repoUrl={websiteUrl}
+  theme="teal"
+>
+  <BubbleGrid ariaLabel="Editopia highlights" theme="teal">
+    {
+      project.highlights.map((highlight) => (
+        <Bubble title={highlight.title}>{highlight.content}</Bubble>
+      ))
+    }
+  </BubbleGrid>
+
+  <h2>What I Built</h2>
+  <p>
+    {project.whatIBuilt}
+  </p>
+
+  <MetricGrid theme="teal">
+    {
+      project.metrics.map((metric) => (
+        <Metric value={metric.value} label={metric.label} />
+      ))
+    }
+  </MetricGrid>
+
+  <h3 id="features">Key Features</h3>
+  <ul>
+    {project.features.map((feature) => <li>{feature}</li>)}
+  </ul>
+
+  <h3>Technical Architecture</h3>
+  <p>
+    {project.architecture}
+  </p>
+
+  <h3>Stack at a Glance</h3>
+  <StackGrid theme="teal">
+    <div>
+      <h4>Core Framework</h4>
+      <p>{project.stack.core}</p>
+    </div>
+    <div>
+      <h4>Styling</h4>
+      <p>{project.stack.styling}</p>
+    </div>
+    <div>
+      <h4>Deployment</h4>
+      <p>{project.stack.deployment}</p>
+    </div>
+  </StackGrid>
+
+  <h3>Developer Experience</h3>
+  <p>
+    {project.devExperience}
+  </p>
+
+  <h3>Outcome</h3>
+  <p>
+    {project.outcome}
+  </p>
+
+  <p class="cta">
+    {project.cta}
+  </p>
+
+  <div class="project-links">
+    <a href={websiteUrl} target="_blank" rel="noopener" class="website-link">
+      🌐 Visit Editopia.gr
+    </a>
+    <a href={repoUrl} target="_blank" rel="noopener" class="repo-link">
+      📂 View Source Code
+    </a>
+  </div>
+</ProjectLayout>
+
+<style>
+  .project-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .website-link,
+  .repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .website-link {
+    background: linear-gradient(135deg, #2563eb, #ec4899);
+    color: white;
+  }
+
+  .website-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  }
+
+  .repo-link {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: inherit;
+  }
+
+  .repo-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    .project-links {
+      flex-direction: column;
+    }
+
+    .website-link,
+    .repo-link {
+      justify-content: center;
+    }
+  }
+</style>
