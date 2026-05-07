@@ -76,6 +76,11 @@
             "title": "Editopia",
             "description": "Professional portfolio website for an editor, translator, and book reviewer. Modern, responsive design with Vue, optimized for SEO and showcasing editorial services.",
             "tags": ["Vue", "TypeScript", "Portfolio", "SEO"]
+          },
+          {
+            "title": "Team Management",
+            "description": "Full-stack team tracking workspace with account isolation, project planning, task management, dashboards, calendar views, and secure email-based authentication flows.",
+            "tags": ["React", "Fastify", "Prisma", "PostgreSQL"]
           }
         ]
       },
@@ -489,6 +494,51 @@
         "devExperience": "The project emphasizes maintainability with a clean component structure, making it easy to update content and add new portfolio items. TypeScript ensures type safety throughout the codebase, and the Vue build process optimizes all assets for production deployment.",
         "outcome": "Editopia successfully launched as a professional online presence for editorial services. The fast-loading, SEO-optimized site provides an excellent foundation for attracting new clients and showcasing professional work in the publishing industry.",
         "cta": "Visit the live website to see the portfolio in action and explore how modern web technologies can elevate professional service presentations."
+      },
+      "team-management": {
+        "title": "Team Management",
+        "description": "A cloud-hosted team tracking workspace built with React, Fastify, Prisma, and PostgreSQL. Each registered account owns an isolated environment for projects, team members, tasks, dashboards, and calendar planning.",
+        "highlights": [
+          {
+            "title": "Workspace Isolation",
+            "content": "Every account manages its own projects, members, tasks, dashboard, and calendar data without cross-account leakage."
+          },
+          {
+            "title": "Secure Account Flows",
+            "content": "Cookie-based sessions, email verification, and password reset flows use purpose-specific 6-digit OTPs delivered through SMTP."
+          },
+          {
+            "title": "Full-stack Delivery",
+            "content": "A shared TypeScript workspace keeps React client forms, Fastify APIs, Prisma persistence, and validation schemas aligned."
+          }
+        ],
+        "whatIBuilt": "I built a production-oriented team management tool for managers who need a practical workspace for project planning and task tracking. The application combines authenticated account ownership with structured project, member, task, dashboard, and calendar workflows so each manager can coordinate work from a single cloud-hosted interface.",
+        "metrics": [
+          { "value": "3", "label": "Workspace apps" },
+          { "value": "6-digit", "label": "Email OTP flows" },
+          { "value": "1", "label": "Isolated workspace per account" }
+        ],
+        "features": [
+          "Multi-account registration with email and password credentials.",
+          "Email verification through 6-digit OTP delivery over SMTP.",
+          "Forgot-password recovery with a separate purpose-based OTP flow.",
+          "Cookie-based authenticated sessions for browser-first usage.",
+          "Per-account isolation for projects, members, tasks, dashboard, and calendar data.",
+          "Manager-owned team member records for organizing work without requiring every member to sign in.",
+          "Project, task, dashboard, and calendar views built as a cohesive React workspace.",
+          "Shared DTOs and Zod validation schemas used by both the client and server.",
+          "Prisma migrations and PostgreSQL persistence for reliable relational data modeling.",
+          "Ubuntu production deployment script with Node.js, PostgreSQL, PM2, build, and migration steps."
+        ],
+        "architecture": "The workspace is split into a React client, a Fastify server, and a shared TypeScript package. Client flows use React Router, TanStack Query, React Hook Form, Mantine, and FullCalendar. The server exposes authenticated Fastify routes backed by Prisma Client and PostgreSQL, with Zod schemas and shared DTOs keeping request and response contracts consistent across the stack.",
+        "stack": {
+          "client": "React, Vite, React Router, TanStack Query, React Hook Form, Mantine, FullCalendar",
+          "server": "Fastify, Prisma Client, PostgreSQL, Zod, cookie-based sessions, SMTP email verification",
+          "platform": "TypeScript workspaces, shared DTO package, Prisma migrations, PM2 production process, Ubuntu deployment script"
+        },
+        "devExperience": "The monorepo provides workspace scripts for setup, development, builds, tests, linting, and strict TypeScript checks. Shared validation and DTO definitions reduce drift between the React client and Fastify server, while Prisma migrations make database setup and deployment repeatable.",
+        "outcome": "Team Management is deployed as a live cloud-hosted tool for organizing projects, team members, tasks, dashboard insights, and calendar planning under isolated manager accounts. The architecture keeps product workflows cohesive while preserving clear boundaries between UI state, API contracts, authentication, and persistence.",
+        "cta": "Visit the live Team Management application to see the workspace experience in production."
       }
     }
   }

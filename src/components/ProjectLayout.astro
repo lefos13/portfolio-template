@@ -7,11 +7,12 @@ interface Props {
 	title: string;
 	description: string;
 	repoUrl: string;
+	ctaLabel?: string;
 	theme?: 'blue' | 'purple' | 'teal';
 	darkMode?: boolean;
 }
 
-const { title, description, repoUrl, theme = 'blue', darkMode = false } = Astro.props;
+const { title, description, repoUrl, ctaLabel = 'View Repository', theme = 'blue', darkMode = false } = Astro.props;
 
 const themeColors = {
 	blue: {
@@ -54,7 +55,7 @@ const colors = themeColors[theme];
 				<h1>{title}</h1>
 				<p class="lead">{description}</p>
 				<div class="cta-group">
-					<a class="button" href={repoUrl} target="_blank" rel="noopener">View Repository</a>
+					<a class="button" href={repoUrl} target="_blank" rel="noopener">{ctaLabel}</a>
 					<a class="ghost" href="#content">Learn More</a>
 				</div>
 			</section>

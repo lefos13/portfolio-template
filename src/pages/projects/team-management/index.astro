@@ -1,0 +1,84 @@
+---
+import content from "../../../content.json";
+import ProjectLayout from "../../../components/ProjectLayout.astro";
+import BubbleGrid from "../../../components/BubbleGrid.astro";
+import Bubble from "../../../components/Bubble.astro";
+import MetricGrid from "../../../components/MetricGrid.astro";
+import Metric from "../../../components/Metric.astro";
+import StackGrid from "../../../components/StackGrid.astro";
+
+const project = content.pages.projects["team-management"];
+const pageTitle = project.title;
+const pageDescription = project.description;
+const liveUrl = "https://mgteam.softaware-tools.gr/";
+---
+
+<ProjectLayout
+  title={pageTitle}
+  description={pageDescription}
+  repoUrl={liveUrl}
+  ctaLabel="Visit Live App"
+  theme="teal"
+>
+  <BubbleGrid ariaLabel="Team Management highlights" theme="teal">
+    {
+      project.highlights.map((highlight) => (
+        <Bubble title={highlight.title}>{highlight.content}</Bubble>
+      ))
+    }
+  </BubbleGrid>
+
+  <h2>What I Built</h2>
+  <p>
+    {project.whatIBuilt}
+  </p>
+
+  <MetricGrid theme="teal">
+    {
+      project.metrics.map((metric) => (
+        <Metric value={metric.value} label={metric.label} />
+      ))
+    }
+  </MetricGrid>
+
+  <h3 id="features">Key Features</h3>
+  <ul>
+    {project.features.map((feature) => <li>{feature}</li>)}
+  </ul>
+
+  <h3>Technical Architecture</h3>
+  <p>
+    {project.architecture}
+  </p>
+
+  <h3>Stack at a Glance</h3>
+  <StackGrid theme="teal">
+    <div>
+      <h4>Client</h4>
+      <p>{project.stack.client}</p>
+    </div>
+    <div>
+      <h4>Server</h4>
+      <p>{project.stack.server}</p>
+    </div>
+    <div>
+      <h4>Platform</h4>
+      <p>{project.stack.platform}</p>
+    </div>
+  </StackGrid>
+
+  <h3>Developer Experience</h3>
+  <p>
+    {project.devExperience}
+  </p>
+
+  <h3>Outcome</h3>
+  <p>
+    {project.outcome}
+  </p>
+
+  <p class="cta">
+    {project.cta}
+    <a href={liveUrl} target="_blank" rel="noopener">{liveUrl}</a>.
+  </p>
+</ProjectLayout>
