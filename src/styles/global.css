@@ -533,6 +533,22 @@ td {
   transform: none;
 }
 
+/* ---------- Motion ---------- */
+
+/* Classes are only added by BaseLayout's script when motion is allowed. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

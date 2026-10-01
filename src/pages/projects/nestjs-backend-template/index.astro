@@ -17,9 +17,8 @@ const repoUrl = "https://github.com/lefos13/nestjs-backend-template";
   title={pageTitle}
   description={pageDescription}
   repoUrl={repoUrl}
-  theme="blue"
 >
-  <BubbleGrid ariaLabel="Template features highlights" theme="blue">
+  <BubbleGrid ariaLabel="Template features highlights">
     {
       project.highlights.map((highlight) => (
         <Bubble title={highlight.title}>{highlight.content}</Bubble>
@@ -32,7 +31,7 @@ const repoUrl = "https://github.com/lefos13/nestjs-backend-template";
     {project.whatIBuilt}
   </p>
 
-  <MetricGrid theme="blue">
+  <MetricGrid>
     {
       project.metrics.map((metric) => (
         <Metric value={metric.value} label={metric.label} />
@@ -51,7 +50,7 @@ const repoUrl = "https://github.com/lefos13/nestjs-backend-template";
   </p>
 
   <h3>Stack at a Glance</h3>
-  <StackGrid theme="blue">
+  <StackGrid>
     <div>
       <h4>Core Framework</h4>
       <p>{project.stack.core}</p>

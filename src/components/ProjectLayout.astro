@@ -1,392 +1,246 @@
 ---
-import BaseHead from './BaseHead.astro';
-import Footer from './Footer.astro';
-import Header from './Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 interface Props {
-	title: string;
-	description: string;
-	repoUrl: string;
-	ctaLabel?: string;
-	theme?: 'blue' | 'purple' | 'teal';
-	darkMode?: boolean;
+  title: string;
+  description: string;
+  repoUrl: string;
+  ctaLabel?: string;
 }
 
-const { title, description, repoUrl, ctaLabel = 'View Repository', theme = 'blue', darkMode = false } = Astro.props;
-
-const themeColors = {
-	blue: {
-		primary: 'rgba(75, 99, 255, 0.18)',
-		secondary: 'rgba(13, 148, 136, 0.18)',
-		tertiary: 'rgba(64, 224, 208, 0.16)',
-		accent: '#4b63ff',
-		gradient: 'linear-gradient(135deg, #4b63ff, #16a085)',
-	},
-	purple: {
-		primary: 'rgba(78, 205, 196, 0.18)',
-		secondary: 'rgba(187, 134, 252, 0.18)',
-		tertiary: 'rgba(94, 234, 212, 0.12)',
-		accent: '#7c3aed',
-		gradient: 'linear-gradient(135deg, #4b63ff, #7c3aed)',
-	},
-	teal: {
-		primary: 'rgba(59, 130, 246, 0.18)',
-		secondary: 'rgba(236, 72, 153, 0.2)',
-		tertiary: 'rgba(56, 189, 248, 0.12)',
-		accent: '#2563eb',
-		gradient: 'linear-gradient(135deg, #2563eb, #ec4899)',
-	},
-};
-
-const colors = themeColors[theme];
+const {
+  title,
+  description,
+  repoUrl,
+  ctaLabel = 'View Repository',
+} = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-	<body class:list={[darkMode && 'dark-mode']}>
-		<Header />
-		<main class="page">
-			<div class="background" aria-hidden="true"></div>
-			<section class="hero">
-				<p class="eyebrow">Project Spotlight</p>
-				<h1>{title}</h1>
-				<p class="lead">{description}</p>
-				<div class="cta-group">
-					<a class="button" href={repoUrl} target="_blank" rel="noopener">{ctaLabel}</a>
-					<a class="ghost" href="#content">Learn More</a>
-				</div>
-			</section>
+<BaseLayout title={title} description={description}>
+  <div class="project-page">
+    <div class="glow-bg" aria-hidden="true"></div>
 
-			<section class="content" id="content">
-				<slot />
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Project Spotlight</p>
+        <h1>{title}</h1>
+        <p class="lead">{description}</p>
+        <div class="cta-group">
+          <a class="btn btn--primary" href={repoUrl} target="_blank" rel="noopener">
+            {ctaLabel}
+          </a>
+          <a class="btn btn--ghost" href="#content">Learn More</a>
+        </div>
+      </div>
+    </section>
 
-<style define:vars={{ 
-	primary: colors.primary, 
-	secondary: colors.secondary, 
-	tertiary: colors.tertiary,
-	accent: colors.accent,
-	gradient: colors.gradient
-}}>
-	body {
-		background: radial-gradient(circle at 20% 20%, var(--primary), transparent 60%),
-			radial-gradient(circle at 80% 10%, var(--tertiary), transparent 55%),
-			radial-gradient(circle at 50% 80%, var(--secondary), transparent 60%);
-		min-height: 100vh;
-	}
+    <div class="container container--narrow">
+      <section class="content" id="content">
+        <slot />
+      </section>
+    </div>
+  </div>
+</BaseLayout>
 
-	body.dark-mode {
-		background: radial-gradient(circle at 15% 20%, var(--primary), transparent 60%),
-			radial-gradient(circle at 90% 15%, var(--tertiary), transparent 55%),
-			radial-gradient(circle at 50% 80%, var(--secondary), transparent 60%);
-	}
+<style>
+  .project-page {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: var(--space-9);
+  }
 
-	.page {
-		position: relative;
-		margin: 0 auto;
-		max-width: 1100px;
-		padding: 4rem 1rem 5rem;
-		color: #101828;
-		width: 100%;
-		box-sizing: border-box;
-		overflow-x: hidden;
-	}
+  .glow-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--container-max);
+    height: 32rem;
+    background:
+      radial-gradient(ellipse 60% 45% at 50% 0%, var(--color-glow), transparent 70%),
+      radial-gradient(ellipse 40% 35% at 80% 20%, var(--color-glow-alt), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
+  }
 
-	.background {
-		position: fixed;
-		inset: 0;
-		background: linear-gradient(120deg, var(--primary), var(--secondary));
-		filter: blur(140px);
-		opacity: 0.6;
-		pointer-events: none;
-		z-index: -2;
-		animation: pulse 14s ease-in-out infinite alternate;
-	}
+  .hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-6);
+  }
 
-	@keyframes pulse {
-		0% {
-			transform: scale(1) translateY(0);
-		}
-		50% {
-			transform: scale(1.05) translateY(-10px);
-		}
-		100% {
-			transform: scale(0.98) translateY(6px);
-		}
-	}
+  .hero h1 {
+    font-size: var(--text-4xl);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-4);
+    max-width: 44rem;
+    margin-inline: auto;
+  }
 
-	.hero {
-		margin-bottom: 3rem;
-		text-align: center;
-	}
+  .hero .lead {
+    margin-inline: auto;
+    max-width: 42rem;
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--color-text-muted);
+  }
 
-	.eyebrow {
-		color: var(--accent);
-		font-size: 0.85rem;
-		font-weight: 600;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		margin-bottom: 0.75rem;
-	}
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
 
-	.lead {
-		font-size: 1.15rem;
-		line-height: 1.75;
-		margin: 1rem auto 0;
-		max-width: 60ch;
-		color: #1f2937;
-	}
+  .content {
+    position: relative;
+    z-index: 1;
+    padding-top: var(--space-4);
+  }
 
-	body.dark-mode .lead {
-		color: black;
-	}
+  /* Highlight cards break out of the narrow prose column to the full container width. */
+  .content :global(.bubble-grid) {
+    --breakout: min(var(--container-max), 100vw - 2 * var(--container-pad));
+    width: var(--breakout);
+    margin-inline: calc((100% - var(--breakout)) / 2);
+  }
 
-	.cta-group {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 1rem;
-		margin-top: 2rem;
-	}
+  .content :global(h2) {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+    color: var(--color-heading);
+  }
 
-	.button,
-	.ghost {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.85rem 1.6rem;
-		border-radius: 999px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-	}
+  .content :global(h3) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-3);
+    color: var(--color-heading);
+  }
 
-	.button {
-		background: var(--gradient);
-		color: #fff;
-		box-shadow: 0 10px 30px rgba(75, 99, 255, 0.35);
-	}
+  .content :global(h4) {
+    font-size: var(--text-lg);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+    color: var(--color-heading);
+  }
 
-	.button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 14px 32px rgba(75, 99, 255, 0.45);
-	}
+  .content :global(p) {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
 
-	.ghost {
-		background: rgba(255, 255, 255, 0.3);
-		color: var(--accent);
-		border: 1px solid rgba(75, 99, 255, 0.2);
-	}
+  .content :global(ul) {
+    margin: var(--space-4) 0 var(--space-6);
+    padding-left: 1.25rem;
+  }
 
-	.ghost:hover {
-		background: rgba(75, 99, 255, 0.12);
-		transform: translateY(-2px);
-	}
+  .content :global(li) {
+    color: var(--color-text);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-2);
+  }
 
-	.content {
-		backdrop-filter: blur(12px);
-		background: rgba(255, 255, 255, 0.78);
-		border-radius: 2rem;
-		padding: 3rem clamp(1.5rem, 4vw, 3.5rem);
-		box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
-	}
+  .content :global(.cta),
+  .content :global(p.cta) {
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    background: var(--color-accent-soft);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    color: var(--color-heading);
+    font-weight: 500;
+  }
 
-	body.dark-mode .content {
-		background: rgba(15, 23, 42, 0.82);
-		box-shadow: 0 30px 70px rgba(15, 23, 42, 0.3);
-		color: #f8fafc;
-	}
+  .content :global(.project-links) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
 
-	.content :global(h2),
-	.content :global(h3),
-	.content :global(h4) {
-		margin-top: 2.2rem;
-		color: #0f172a;
-	}
+  .content :global(.website-link),
+  .content :global(.repo-link) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 2.875rem;
+    padding: 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    transition:
+      background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      color var(--duration-fast) ease,
+      transform var(--duration-fast) ease;
+  }
 
-	body.dark-mode .content :global(h2),
-	body.dark-mode .content :global(h3),
-	body.dark-mode .content :global(h4) {
-		color: #000000;
-	}
+  .content :global(.website-link) {
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
 
-	.content :global(ul) {
-		margin: 1rem 0 1.5rem;
-		padding-left: 1.2rem;
-	}
+  .content :global(.website-link:hover) {
+    background: var(--color-accent-strong);
+    color: var(--color-accent-contrast);
+  }
 
-	.content :global(p) {
-		margin: 1rem 0;
-	}
+  .content :global(.repo-link) {
+    background: transparent;
+    border-color: var(--color-border-strong);
+    color: var(--color-heading);
+  }
 
-	.content :global(.cta) {
-		border-left: 3px solid var(--accent);
-		margin-top: 2.5rem;
-		padding-left: 1rem;
-		font-weight: 500;
-		color: #1f2937;
-	}
+  .content :global(.repo-link:hover) {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
 
-	body.dark-mode .content :global(.cta) {
-		color: #000000;
-	}
+  @media (max-width: 480px) {
+    .cta-group {
+      flex-direction: column;
+      width: 100%;
+      max-width: 22rem;
+      margin-inline: auto;
+    }
 
-	@media (prefers-reduced-motion: reduce) {
-		.background,
-		.button,
-		.ghost {
-			animation: none !important;
-			transition: none !important;
-		}
-	}
-	
-	@media (max-width: 1024px) {
-		.page {
-			padding: 3rem 1rem 4rem;
-			width: 100%;
-		}
-		
-		.hero {
-			margin-bottom: 2.5rem;
-		}
-		
-		.content {
-			padding: 2.5rem clamp(1rem, 3vw, 2rem);
-		}
-	}
-	
-	@media (max-width: 768px) {
-		.page {
-			padding: 2.5rem 0.75rem 3rem;
-			width: 100%;
-		}
-		
-		.hero {
-			margin-bottom: 2rem;
-		}
-		
-		.hero h1 {
-			font-size: 2rem;
-			line-height: 1.2;
-		}
-		
-		.eyebrow {
-			font-size: 0.8rem;
-			margin-bottom: 0.5rem;
-		}
-		
-		.lead {
-			font-size: 1rem;
-			line-height: 1.6;
-			margin-top: 0.75rem;
-		}
-		
-		.cta-group {
-			flex-direction: column;
-			width: 100%;
-			max-width: 400px;
-			margin: 1.5rem auto 0;
-		}
-		
-		.button,
-		.ghost {
-			width: 100%;
-			padding: 0.75rem 1.4rem;
-			font-size: 0.95rem;
-		}
-		
-		.content {
-			padding: 2rem 1.5rem;
-			border-radius: 1.5rem;
-		}
-		
-		.content :global(h2) {
-			font-size: 1.75rem;
-			margin-top: 2rem;
-		}
-		
-		.content :global(h3) {
-			font-size: 1.4rem;
-			margin-top: 1.75rem;
-		}
-		
-		.content :global(h4) {
-			font-size: 1.2rem;
-		}
-		
-		.content :global(p) {
-			font-size: 0.95rem;
-		}
-		
-		.content :global(ul) {
-			padding-left: 1rem;
-		}
-		
-		.content :global(li) {
-			font-size: 0.95rem;
-			margin-bottom: 0.5rem;
-		}
-	}
-	
-	@media (max-width: 480px) {
-		.page {
-			padding: 2rem 0.5rem 2.5rem;
-			width: 100%;
-		}
-		
-		.hero h1 {
-			font-size: 1.75rem;
-		}
-		
-		.eyebrow {
-			font-size: 0.75rem;
-		}
-		
-		.lead {
-			font-size: 0.95rem;
-		}
-		
-		.button,
-		.ghost {
-			padding: 0.7rem 1.2rem;
-			font-size: 0.9rem;
-		}
-		
-		.content {
-			padding: 1.5rem 1.25rem;
-			border-radius: 1.25rem;
-		}
-		
-		.content :global(h2) {
-			font-size: 1.5rem;
-			margin-top: 1.75rem;
-		}
-		
-		.content :global(h3) {
-			font-size: 1.25rem;
-			margin-top: 1.5rem;
-		}
-		
-		.content :global(h4) {
-			font-size: 1.1rem;
-		}
-		
-		.content :global(p),
-		.content :global(li) {
-			font-size: 0.9rem;
-		}
-		
-		.content :global(.cta) {
-			padding-left: 0.75rem;
-			margin-top: 2rem;
-			font-size: 0.9rem;
-		}
-	}
+    .cta-group .btn {
+      width: 100%;
+    }
+
+    .content :global(.project-links) {
+      flex-direction: column;
+    }
+
+    .content :global(.website-link),
+    .content :global(.repo-link) {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glow-bg {
+      animation: none !important;
+    }
+
+    .content :global(.website-link),
+    .content :global(.repo-link) {
+      transition: none !important;
+    }
+  }
 </style>

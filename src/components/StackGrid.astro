@@ -1,193 +1,58 @@
 ---
-interface Props {
-	darkMode?: boolean;
-	theme?: 'blue' | 'purple' | 'teal';
-}
-
-const { darkMode = false, theme = 'blue' } = Astro.props;
-
-const themeColors = {
-	blue: {
-		accent: '#4f46e5',
-		accentLight: '#6366f1',
-		bg: 'linear-gradient(135deg, rgba(238, 242, 255, 0.9), rgba(224, 231, 255, 0.7))',
-		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6))',
-	},
-	purple: {
-		accent: '#a855f7',
-		accentLight: '#c084fc',
-		bg: 'linear-gradient(135deg, rgba(250, 245, 255, 0.9), rgba(243, 232, 255, 0.7))',
-		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6))',
-	},
-	teal: {
-		accent: '#14b8a6',
-		accentLight: '#2dd4bf',
-		bg: 'linear-gradient(135deg, rgba(240, 253, 250, 0.9), rgba(204, 251, 241, 0.7))',
-		bgDark: 'linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6))',
-	},
-};
-
-const colors = themeColors[theme];
 ---
 
-<div class="stack-grid" class:list={[darkMode && 'dark']}>
-	<slot />
+<div class="stack-grid">
+  <slot />
 </div>
 
-<style define:vars={{ 
-	accent: colors.accent, 
-	accentLight: colors.accentLight,
-	bg: colors.bg,
-	bgDark: colors.bgDark
-}}>
-	.stack-grid {
-		display: grid;
-		gap: 1.75rem;
-		margin-top: 1.5rem;
-	}
+<style>
+  .stack-grid {
+    display: grid;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-7);
+    grid-template-columns: 1fr;
+  }
 
-	@media (min-width: 720px) {
-		.stack-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-	}
+  @media (min-width: 520px) {
+    .stack-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 
-	.stack-grid :global(> div) {
-		position: relative;
-		background: var(--bg);
-		padding: 1.75rem;
-		border-radius: 1.25rem;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
-		border: 1px solid rgba(148, 163, 184, 0.12);
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		backdrop-filter: blur(8px);
-		overflow: hidden;
-	}
+  @media (min-width: 768px) {
+    .stack-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+  }
 
-	.stack-grid.dark :global(> div) {
-		background: var(--bgDark);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
-		border: 1px solid rgba(148, 163, 184, 0.15);
-	}
+  .stack-grid :global(> div) {
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--duration-fast) ease;
+  }
 
-	.stack-grid :global(> div:hover) {
-		transform: translateY(-3px);
-		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
-		border-color: rgba(var(--accent), 0.25);
-	}
+  .stack-grid :global(> div:hover) {
+    border-color: var(--color-border-strong);
+  }
 
-	.stack-grid.dark :global(> div:hover) {
-		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(0, 0, 0, 0.3);
-		border-color: var(--accent);
-	}
+  .stack-grid :global(h4) {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-2) 0;
+  }
 
-	.stack-grid :global(> div::before) {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 3px;
-		background: linear-gradient(90deg, var(--accent), var(--accentLight));
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-
-	.stack-grid :global(> div:hover::before) {
-		opacity: 1;
-	}
-
-	.stack-grid :global(h4) {
-		position: relative;
-		margin: 0 0 0.75rem 0;
-		font-size: 1.125rem;
-		font-weight: 700;
-		color: #1e293b;
-		letter-spacing: -0.01em;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.stack-grid.dark :global(h4) {
-		color: #f1f5f9;
-	}
-
-	.stack-grid :global(h4::before) {
-		content: '';
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--accent);
-		display: inline-block;
-		box-shadow: 0 0 8px var(--accent);
-	}
-
-	.stack-grid :global(p) {
-		margin: 0;
-		line-height: 1.7;
-		color: #475569;
-		font-size: 0.95rem;
-	}
-
-	.stack-grid.dark :global(p) {
-		color: #cbd5e1;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.stack-grid :global(> div) {
-			transition: none !important;
-		}
-		
-		.stack-grid :global(> div:hover) {
-			transform: none;
-		}
-	}
-	
-	@media (max-width: 1024px) {
-		.stack-grid {
-			gap: 1.5rem;
-		}
-	}
-	
-	@media (max-width: 719px) {
-		.stack-grid {
-			grid-template-columns: 1fr;
-			gap: 1.25rem;
-			margin-top: 1.25rem;
-		}
-		
-		.stack-grid :global(> div) {
-			padding: 1.5rem;
-		}
-		
-		.stack-grid :global(h4) {
-			font-size: 1.05rem;
-		}
-		
-		.stack-grid :global(p) {
-			font-size: 0.9rem;
-		}
-	}
-	
-	@media (max-width: 480px) {
-		.stack-grid {
-			gap: 1rem;
-		}
-		
-		.stack-grid :global(> div) {
-			padding: 1.25rem;
-			border-radius: 1rem;
-		}
-		
-		.stack-grid :global(h4) {
-			font-size: 1rem;
-			margin-bottom: 0.65rem;
-		}
-		
-		.stack-grid :global(p) {
-			font-size: 0.875rem;
-			line-height: 1.6;
-		}
-	}
+  .stack-grid :global(p) {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+  }
 </style>

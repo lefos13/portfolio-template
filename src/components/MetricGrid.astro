@@ -1,73 +1,66 @@
 ---
-interface Props {
-	theme?: 'blue' | 'purple' | 'teal';
-}
-
-const { theme = 'blue' } = Astro.props;
-
-const themeColors = {
-	blue: '#4b63ff',
-	purple: '#7c3aed',
-	teal: '#38bdf8',
-};
-
-const accentColor = themeColors[theme];
 ---
 
 <div class="metric-grid">
-	<slot />
+  <slot />
 </div>
 
-<style define:vars={{ accent: accentColor }}>
-	.metric-grid {
-		display: grid;
-		gap: 1.25rem;
-		margin: 2.5rem 0;
-	}
+<style>
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-block: var(--space-7);
+  }
 
-	@media (min-width: 720px) {
-		.metric-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-	}
-	
-	@media (max-width: 719px) {
-		.metric-grid {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-	}
-	
-	@media (max-width: 480px) {
-		.metric-grid {
-			margin: 2rem 0;
-			gap: 0.85rem;
-		}
-	}
+  @media (min-width: 600px) {
+    .metric-grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--space-4);
+    }
+  }
 
-	.metric-grid :global(.metric) {
-		font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
-		font-weight: 700;
-		color: var(--accent);
-		margin-bottom: 0.4rem;
-	}
+  .metric-grid :global(> div) {
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: border-color var(--duration-fast) ease;
+  }
 
-	.metric-grid :global(.metric span) {
-		white-space: nowrap;
-	}
+  .metric-grid :global(> div:hover) {
+    border-color: var(--color-border-strong);
+  }
 
-	.metric-grid :global(.metric-label) {
-		font-size: 0.95rem;
-		color: #475467;
-	}
-	
-	@media (max-width: 480px) {
-		.metric-grid :global(.metric) {
-			font-size: clamp(1.75rem, 5vw, 2rem);
-		}
-		
-		.metric-grid :global(.metric-label) {
-			font-size: 0.9rem;
-		}
-	}
+  .metric-grid :global(.metric) {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    color: var(--color-accent);
+    margin: 0 0 var(--space-2);
+  }
+
+  .metric-grid :global(.metric span) {
+    display: inline-block;
+  }
+
+  .metric-grid :global(.metric-label) {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .metric-grid :global(.metric) {
+      font-size: var(--text-xl);
+    }
+  }
 </style>

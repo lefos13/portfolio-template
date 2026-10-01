@@ -17,9 +17,8 @@ const repoUrl = "https://github.com/lefos13/token-optimizer";
   title={pageTitle}
   description={pageDescription}
   repoUrl={repoUrl}
-  theme="teal"
 >
-  <BubbleGrid ariaLabel="Token Optimizer highlights" theme="teal">
+  <BubbleGrid ariaLabel="Token Optimizer highlights">
     {
       project.highlights.map((highlight) => (
         <Bubble title={highlight.title}>{highlight.content}</Bubble>
@@ -32,7 +31,7 @@ const repoUrl = "https://github.com/lefos13/token-optimizer";
     {project.whatIBuilt}
   </p>
 
-  <MetricGrid theme="teal">
+  <MetricGrid>
     {
       project.metrics.map((metric) => (
         <Metric value={metric.value} label={metric.label} />
@@ -51,7 +50,7 @@ const repoUrl = "https://github.com/lefos13/token-optimizer";
   </p>
 
   <h3>Stack at a Glance</h3>
-  <StackGrid theme="teal">
+  <StackGrid>
     <div>
       <h4>Core Engine</h4>
       <p>{project.stack.core}</p>

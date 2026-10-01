@@ -11,16 +11,15 @@ const project = content.pages.projects["editopia"];
 const pageTitle = project.title;
 const pageDescription = project.description;
 const websiteUrl = "https://editopia.gr/";
-const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
+const repoUrl = "https://github.com/lefos13/elenpapa.github.io";
 ---
 
 <ProjectLayout
   title={pageTitle}
   description={pageDescription}
   repoUrl={websiteUrl}
-  theme="teal"
 >
-  <BubbleGrid ariaLabel="Editopia highlights" theme="teal">
+  <BubbleGrid ariaLabel="Editopia highlights">
     {
       project.highlights.map((highlight) => (
         <Bubble title={highlight.title}>{highlight.content}</Bubble>
@@ -33,7 +32,7 @@ const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
     {project.whatIBuilt}
   </p>
 
-  <MetricGrid theme="teal">
+  <MetricGrid>
     {
       project.metrics.map((metric) => (
         <Metric value={metric.value} label={metric.label} />
@@ -52,7 +51,7 @@ const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
   </p>
 
   <h3>Stack at a Glance</h3>
-  <StackGrid theme="teal">
+  <StackGrid>
     <div>
       <h4>Core Framework</h4>
       <p>{project.stack.core}</p>
@@ -94,8 +93,8 @@ const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
 <style>
   .project-links {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
     flex-wrap: wrap;
   }
 
@@ -103,33 +102,43 @@ const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
   .repo-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
-    border-radius: 8px;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 2.875rem;
+    padding: 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
     font-weight: 600;
+    line-height: 1;
     text-decoration: none;
-    transition: all 0.2s ease;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    transition:
+      background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease,
+      color var(--duration-fast) ease,
+      transform var(--duration-fast) ease;
   }
 
   .website-link {
-    background: linear-gradient(135deg, #2563eb, #ec4899);
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
   }
 
   .website-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    background: var(--color-accent-strong);
+    color: var(--color-accent-contrast);
   }
 
   .repo-link {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: inherit;
+    background: transparent;
+    border-color: var(--color-border-strong);
+    color: var(--color-heading);
   }
 
   .repo-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   @media (max-width: 480px) {
@@ -139,7 +148,14 @@ const repoUrl = "https://github.com/elenpapa/elenpapa.github.io";
 
     .website-link,
     .repo-link {
-      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .website-link,
+    .repo-link {
+      transition: none !important;
     }
   }
 </style>

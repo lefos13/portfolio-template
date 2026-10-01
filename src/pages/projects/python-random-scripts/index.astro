@@ -16,9 +16,8 @@ const repoUrl = "https://github.com/lefos13/python-random-scripts";
   title={pageTitle}
   description={pageDescription}
   repoUrl={repoUrl}
-  theme="purple"
 >
-  <BubbleGrid ariaLabel="Script categories" theme="purple">
+  <BubbleGrid ariaLabel="Script categories">
     {
       project.highlights.map((highlight) => (
         <Bubble title={highlight.title}>{highlight.content}</Bubble>
@@ -31,7 +30,7 @@ const repoUrl = "https://github.com/lefos13/python-random-scripts";
     {project.whatLivesInTheRepo}
   </p>
 
-  <MetricGrid theme="purple">
+  <MetricGrid>
     {
       project.metrics.map((metric) => (
         <Metric value={metric.value} label={metric.label} />
