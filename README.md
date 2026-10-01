@@ -1,62 +1,42 @@
-# Astro Starter Kit: Blog
+# Lefteris Evangelinos - Portfolio
 
-```sh
-npm create astro@latest -- --template blog
-```
+Personal portfolio built with [Astro](https://astro.build). It covers software projects, a career timeline, and literary work. The site deploys to GitHub Pages at `https://lefos13.github.io/portfolio-template` (the `base` path is set in `astro.config.mjs`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-Features:
+| Command           | Action                                             |
+| :---------------- | :------------------------------------------------- |
+| `npm install`     | Install dependencies                               |
+| `npm run dev`     | Dev server at `localhost:4321/portfolio-template`  |
+| `npm run build`   | Production build to `./dist/`                      |
+| `npm run preview` | Preview the production build                       |
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+src/
+  content.json            All page copy (home, about, timeline, projects)
+  data/projects.ts        Project registry: order, slugs, nav labels, hrefs
+  data/social.ts          LinkedIn / GitHub / Instagram links and icons
+  styles/global.css       Design tokens and shared primitives
+  layouts/BaseLayout.astro  Page shell: head, header, main, footer, scroll reveal
+  layouts/BlogPost.astro  Blog article layout
+  components/             Header, Footer, ProjectLayout, highlight/metric/stack grids
+  pages/                  Routes (home, about, timeline, blog, projects/*)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Design System
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+`src/styles/global.css` defines every color, type size, spacing step, radius, shadow, and motion value as CSS custom properties. The default palette is dark, and a light palette applies under `prefers-color-scheme: light`. Components use the tokens only, never raw colors.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Shared classes: `.container`, `.section`, `.section-header`, `.eyebrow`, `.lead`, `.btn--primary`, `.btn--ghost`, `.card`, `.card--interactive`, `.callout`, `.tag`, `.tag-list`, `.prose`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Fonts are Inter (body) and Literata (headings). Both are self-hosted through `@fontsource-variable` and include the Greek subsets.
 
-## 🧞 Commands
+## Adding a Project
 
-All commands are run from the root of the project, from a terminal:
+1. Add the project copy under `pages.projects.<slug>` in `src/content.json`, and add a card entry (title, slug, description, tags) to `pages.home.featuredProjects.projects`.
+2. Create `src/pages/projects/<slug>/index.astro` using `ProjectLayout` (copy an existing project page).
+3. Optionally add a short menu label in `NAV_LABELS` in `src/data/projects.ts`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The header menu, the mobile menu, and the home grid all read from `src/data/projects.ts`, so there is no other list to update.

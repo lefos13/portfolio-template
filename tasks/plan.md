@@ -60,36 +60,36 @@ Tasks 3–8 depend only on Tasks 1 and 2 and touch disjoint files, so they can r
 ## Task List
 
 ### Phase 0: Baseline
-- [ ] Task 0: Commit WIP and capture content-parity baseline
+- [x] Task 0: Commit WIP and capture content-parity baseline
 
 ### Phase 1: Foundation
-- [ ] Task 1: Design system tokens and global styles
-- [ ] Task 2: Unified layout shell, navigation, and project registry
+- [x] Task 1: Design system tokens and global styles
+- [x] Task 2: Unified layout shell, navigation, and project registry
 
 ### Checkpoint 1: Foundation
-- [ ] `npm run build` clean; all 19 pages render with the new header and footer
-- [ ] Parity diff shows only nav/footer chrome changes
+- [x] `npm run build` clean; all 19 pages render with the new header and footer
+- [x] Parity diff shows only nav/footer chrome changes
 - [ ] Human review of visual direction on Home and one project page before the remaining pages proceed
 
 ### Phase 2: Page Slices
-- [ ] Task 3: Home hero and expertise
-- [ ] Task 4: Home featured projects and contact CTA
-- [ ] Task 5: Project detail template (all 10 project pages)
-- [ ] Task 6: Timeline page
-- [ ] Task 7: About page
-- [ ] Task 8: Blog index and post layout
+- [x] Task 3: Home hero and expertise
+- [x] Task 4: Home featured projects and contact CTA
+- [x] Task 5: Project detail template (all 10 project pages)
+- [x] Task 6: Timeline page
+- [x] Task 7: About page
+- [x] Task 8: Blog index and post layout
 
 ### Checkpoint 2: Pages
-- [ ] Build clean; parity diff empty apart from allowed exceptions
-- [ ] Every page checked at 375 / 768 / 1280 px, light and dark
+- [x] Build clean; parity diff empty apart from allowed exceptions
+- [x] Every page checked at 375 / 768 / 1280 px, light and dark
 - [ ] Human review
 
 ### Phase 3: Polish and Cleanup
-- [ ] Task 9: Motion, accessibility, and performance pass
-- [ ] Task 10: Remove dead code and dependencies, update README
+- [x] Task 9: Motion, accessibility, and performance pass
+- [x] Task 10: Remove dead code and dependencies, update README
 
 ### Checkpoint 3: Complete
-- [ ] All acceptance criteria in `tasks/todo.md` met
+- [x] All acceptance criteria in `tasks/todo.md` met
 - [ ] Lighthouse (mobile) on Home, one project page, and About: Accessibility ≥ 95, Performance ≥ 90, no CLS regressions
 - [ ] Ready for merge and deploy (GitHub Pages workflow unchanged)
 
