@@ -28,6 +28,13 @@ import {
             >Projects <span class="arrow">▾</span></span
           >
           <div class="dropdown-content">
+            <Link href={`${BASE_URI}/projects/omnissh`}>OmniSSH</Link>
+            <Link href={`${BASE_URI}/projects/token-optimizer`}
+              >Token Optimizer</Link
+            >
+            <Link href={`${BASE_URI}/projects/paseo-plugin-antigravity-cli`}
+              >Paseo Antigravity CLI</Link
+            >
             <Link href={`${BASE_URI}/projects/nestjs-backend-template`}
               >NestJS Template</Link
             >
@@ -55,6 +62,13 @@ import {
             headingSize="h6"
           >
             <ul class="accordion-links">
+              <Link href={`${BASE_URI}/projects/omnissh`}>OmniSSH</Link>
+              <Link href={`${BASE_URI}/projects/token-optimizer`}
+                >Token Optimizer</Link
+              >
+              <Link href={`${BASE_URI}/projects/paseo-plugin-antigravity-cli`}
+                >Paseo Antigravity CLI</Link
+              >
               <Link href={`${BASE_URI}/projects/nestjs-backend-template`}
                 >NestJS Template</Link
               >
@@ -62,7 +76,7 @@ import {
                 >Share the Ride</Link
               >
               <Link href={`${BASE_URI}/projects/ert-game-web`}
-                >ERT Game Web</Link
+                >Web Game</Link
               >
               <Link href={`${BASE_URI}/projects/python-random-scripts`}
                 >Python Scripts</Link
@@ -203,7 +217,8 @@ import {
     border-radius: 0.25em;
     padding: 0.5em 0;
     transition: max-height 0.2s ease;
-    overflow: hidden;
+    max-height: 80vh;
+    overflow-y: auto;
     top: 50px;
   }
   .dropdown:hover .dropdown-content,

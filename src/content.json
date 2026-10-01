@@ -48,6 +48,24 @@
         "note": "Note: Due to confidentiality agreements with clients and employers, not all projects I've contributed to can be publicly shared. The projects showcased here represent a selection of my publicly available work that demonstrates my technical capabilities and approach to problem-solving.",
         "projects": [
           {
+            "title": "OmniSSH",
+            "slug": "omnissh",
+            "description": "High-performance, privacy-first desktop workspace for SSH terminals, SFTP/SCP dual-pane file management, S3 cloud storage, and multi-source connection imports. Built with Tauri v2, Rust, and React 19.",
+            "tags": ["Tauri v2", "Rust", "React 19", "SSH/SFTP", "xterm.js"]
+          },
+          {
+            "title": "Token Optimizer",
+            "slug": "token-optimizer",
+            "description": "Intelligent MCP server that compresses verbose build, lint, and test diagnostics into compact, actionable verdicts for AI coding agents, slashing context token consumption.",
+            "tags": ["TypeScript", "MCP", "AI Tooling", "CLI Installer"]
+          },
+          {
+            "title": "Paseo Antigravity CLI",
+            "slug": "paseo-plugin-antigravity-cli",
+            "description": "Paseo provider plugin integrating Google's official Antigravity CLI (`agy`) over NDJSON streaming. Powers subagent orchestration, plan mode, interactive questions, and quota management.",
+            "tags": ["TypeScript", "Node.js", "Paseo", "Antigravity CLI", "Agentic AI"]
+          },
+          {
             "title": "NestJS Backend Template",
             "description": "Production-ready NestJS template with JWT authentication, Swagger documentation, Prometheus metrics, Sentry error tracking, and comprehensive security features. Built with TypeScript and modern best practices.",
             "tags": ["NestJS", "TypeScript", "Prometheus", "Swagger"]
@@ -59,6 +77,7 @@
           },
           {
             "title": "Web game",
+            "slug": "ert-game-web",
             "description": "Real-time multiplayer game platform with Express.js backend and Vue 3 frontend. Features round-based gameplay, voting mechanics, admin dashboard, and comprehensive session management.",
             "tags": ["Vue 3", "TypeScript", "Express", "Real-time"]
           },
@@ -539,6 +558,139 @@
         "devExperience": "The monorepo provides workspace scripts for setup, development, builds, tests, linting, and strict TypeScript checks. Shared validation and DTO definitions reduce drift between the React client and Fastify server, while Prisma migrations make database setup and deployment repeatable.",
         "outcome": "Team Management is deployed as a live cloud-hosted tool for organizing projects, team members, tasks, dashboard insights, and calendar planning under isolated manager accounts. The architecture keeps product workflows cohesive while preserving clear boundaries between UI state, API contracts, authentication, and persistence.",
         "cta": "Visit the live Team Management application to see the workspace experience in production."
+      },
+      "omnissh": {
+        "title": "OmniSSH",
+        "description": "A high-performance, privacy-first desktop workspace that brings together GPU-accelerated SSH terminals, dual-pane SFTP/SCP file management, multi-cloud S3 storage, and universal connection imports. Built with Tauri v2, Rust, and React 19.",
+        "highlights": [
+          {
+            "title": "GPU Accelerated",
+            "content": "Terminal emulator powered by xterm.js and WebGL rendering with horizontal and vertical split panes, regex scrollback search, and ProxyJump bastion support."
+          },
+          {
+            "title": "OSC 7 Directory Sync",
+            "content": "Linked terminal explorer tracks shell working directory changes in real time over an isolated SSH channel, keeping remote files synced with zero manual refresh."
+          },
+          {
+            "title": "Zero-Cloud Privacy",
+            "content": "All host credentials, keys, and configurations are sealed inside native OS keychains (macOS, Windows, Linux) with zero telemetry and optional self-hosted encrypted dataset sync."
+          }
+        ],
+        "whatIBuilt": "I developed a comprehensive remote infrastructure workspace combining terminal multiplexing, dual-pane SFTP/SCP file transfers, and multi-cloud object storage into a single desktop tool. Built on Tauri v2 and Rust, OmniSSH delivers native execution speed and minimal memory footprint while offering one-click connection migration from OpenSSH, MobaXterm, and local Termius databases.",
+        "metrics": [
+          { "value": "Tauri v2", "label": "Native Rust runtime" },
+          { "value": "3 sources", "label": "Connection importers" },
+          { "value": "0 cloud", "label": "Local-first privacy" }
+        ],
+        "features": [
+          "GPU-accelerated terminal emulation with xterm.js and WebGL rendering.",
+          "Horizontal and vertical split terminal panes with interactive regex scrollback search.",
+          "Live directory tracking (OSC 7) linking remote shell navigation with a docked file explorer.",
+          "Dual-pane SFTP and SCP file browser with conflict resolution and drag-and-drop transfers.",
+          "Multi-cloud S3 storage browser compatible with AWS, MinIO, Cloudflare R2, and DigitalOcean Spaces.",
+          "Universal connection importer supporting OpenSSH configs, MobaXterm sessions, and Termius LevelDB decryption.",
+          "Automated PPK-to-OpenSSH key conversion with passphrase support.",
+          "SSH port forwarding and tunneling management with local and remote redirection presets.",
+          "Dockable host monitoring cards for server health, Docker containers, and systemd services.",
+          "Self-hosted end-to-end encrypted dataset sync without external cloud accounts."
+        ],
+        "architecture": "OmniSSH is architected around Tauri v2 with an asynchronous Rust core handling SSH2 sessions, SFTP subsystems, cryptographic operations, and LevelDB decryption. The UI is built with React 19, TypeScript, and Tailwind CSS, utilizing xterm.js for high-speed terminal rendering. File transfers run over dedicated subsystem channels to prevent UI stalls or terminal latency.",
+        "stack": {
+          "frontend": "React 19, TypeScript, xterm.js (WebGL), Tailwind CSS",
+          "backend": "Rust, Tauri v2, SSH2, SFTP Subsystem, Native Keychain APIs",
+          "storagePlatforms": "AWS S3 / S3-compatible APIs, LevelDB, macOS Keychain, Linux Secret Service, Windows Credential Manager"
+        },
+        "devExperience": "The codebase leverages Tauri v2's strict inter-process communication bridge, ensuring end-to-end type safety between Rust commands and React frontend state. Modular workspace components enable rapid iteration on terminal panels, connection managers, and storage explorers while automated linting and Rust test suites preserve application stability.",
+        "outcome": "OmniSSH provides developers and system administrators with a fast, privacy-focused alternative to commercial remote connection managers. It eliminates vendor lock-in through universal import tooling, avoids cloud subscription requirements, and delivers instantaneous desktop responsiveness.",
+        "cta": "Check out the OmniSSH repository, inspect the architecture, or download the application for macOS, Windows, and Linux."
+      },
+      "token-optimizer": {
+        "title": "Token Optimizer",
+        "description": "An intelligent Model Context Protocol (MCP) server that runs build, lint, and test suites and compresses massive, noisy diagnostic output into compact, actionable verdicts for AI coding agents.",
+        "highlights": [
+          {
+            "title": "Context Slashing",
+            "content": "Transforms megabytes of repetitive compiler errors, lint warnings, and test logs into high-signal summaries, slashing context token consumption by up to 90%."
+          },
+          {
+            "title": "Targeted Triage",
+            "content": "Isolates root-cause failure excerpts, stack traces, and affected files on disk while keeping raw terminal output out of the agent's context window."
+          },
+          {
+            "title": "Universal Agent Support",
+            "content": "Ships with an automated npx installer supporting Claude Code, Cursor, Codex, Antigravity, and OpenCode across Gateway, OpenRouter, and local LLM backends."
+          }
+        ],
+        "whatIBuilt": "I created Token Optimizer to solve one of the most expensive friction points in agentic coding: context bloat from verbose build and test logs. By acting as an MCP-compliant execution proxy, Token Optimizer intercepts diagnostic commands, stores raw logs locally in the workspace, and returns concise verdicts, regression checks, or failure triage summaries directly to the AI agent.",
+        "metrics": [
+          { "value": "90%+", "label": "Context token savings" },
+          { "value": "5 clients", "label": "IDE & agent support" },
+          { "value": "1-cmd", "label": "Transactional installer" }
+        ],
+        "features": [
+          "Compact test verdicts (run_test_verdict) summarizing passes, failures, and execution timings.",
+          "Targeted failure triage (run_failure_triage) identifying root causes and file locations.",
+          "Local workspace log querying (query_log, grep_log) without polluting conversation history.",
+          "Codebase pre-scouting (scout_codebase) to identify relevant files before expansive agent searches.",
+          "Diff review before validation (run_changed_files_review) to catch errors early.",
+          "Deterministic regression checking (run_regression_check) comparing test results against baseline runs.",
+          "Transactional CLI installer (@softawarest/token-optimizer-installer) with automatic client discovery.",
+          "Multi-provider flexibility supporting LLM Gateway tokens, custom OpenRouter keys, and local OpenAI-compatible endpoints.",
+          "Granular execution policies with built-in protection against unsafe command execution."
+        ],
+        "architecture": "Token Optimizer is built as a TypeScript Model Context Protocol (MCP) server communicating via JSON-RPC over stdio. Commands execute inside managed child process sandboxes where stdout and stderr streams are buffered and parsed by heuristic pattern matchers. If diagnostic summarization requires deeper semantic reasoning, the server routes condensed excerpts through an LLM triage layer via OpenRouter or local models.",
+        "stack": {
+          "core": "TypeScript, Node.js, Model Context Protocol (MCP) SDK",
+          "runtime": "child_process streaming, Regex diagnostic parsers, Workspace caching",
+          "integrations": "Claude Code, Antigravity, Cursor, Codex, OpenCode, OpenRouter, Local LLMs"
+        },
+        "devExperience": "The project includes a robust installer package with doctor, repair, and uninstall lifecycle commands that detect installed developer tools and safely write MCP configuration files. Strict TypeScript typing across MCP tool schemas ensures reliable tool calling and seamless integration with modern agent runtimes.",
+        "outcome": "Token Optimizer significantly reduces API token costs and prevents model context saturation during complex pair-programming workflows. By keeping terminal logs off the model's wire and presenting structured verdicts, coding agents resolve bugs faster and with greater accuracy.",
+        "cta": "Install Token Optimizer in your coding agent, explore the tools, or check out the open-source GitHub repository."
+      },
+      "paseo-plugin-antigravity-cli": {
+        "title": "Paseo Antigravity CLI",
+        "description": "A feature-complete provider plugin for the Paseo desktop agent environment that integrates Google's official Antigravity CLI (`agy`) over NDJSON streaming protocols.",
+        "highlights": [
+          {
+            "title": "Native Stream-JSON",
+            "content": "Directly spawns and supervises the official agy binary over NDJSON turns, streaming tool invocations, diffs, and responses without fragile proxy shims."
+          },
+          {
+            "title": "Autonomous Subagent Trees",
+            "content": "Visualizes hierarchical subagent lifecycles, nested child sessions, and dedicated git worktree environments with full timeline fidelity."
+          },
+          {
+            "title": "Interactive Approvals",
+            "content": "Implements Paseo plan review permissions, interactive question cards (ask_question), and background command lifecycle management."
+          }
+        ],
+        "whatIBuilt": "I engineered the Antigravity CLI provider plugin for Paseo, enabling developers to harness Google's agentic coding CLI within a modern desktop UI. The plugin bridges Antigravity's stream-json protocol with Paseo's reactive timeline, adding support for subagent orchestration, custom plan mode reviews, interactive multi-choice question prompts, slash commands, and multi-account quota monitoring.",
+        "metrics": [
+          { "value": "NDJSON", "label": "Stream protocol" },
+          { "value": "100%", "label": "Subagent tree tracking" },
+          { "value": "Multi", "label": "Account & quota switcher" }
+        ],
+        "features": [
+          "Turn execution and event streaming powered by Google's official Antigravity CLI (agy).",
+          "Recursive subagent tree tracking with timeline inspection and dedicated child sessions.",
+          "Git worktree workspace isolation for parallel branch-based subagent tasks.",
+          "Custom Plan Mode workflow allowing users to review and approve proposed implementation plans.",
+          "Interactive question dialogues intercepting ask_question calls with single-select, multi-select, and custom write-in answers.",
+          "Background command monitoring that surfaces held steps from conversation transcripts during long commands.",
+          "Dynamic model discovery across Gemini tiers (High, Medium, Low) with automated cache invalidation.",
+          "Slash command and skill discovery from workspace .agents/skills and global Gemini skill paths.",
+          "Multi-account management UI with live per-account quota usage and seamless account switching."
+        ],
+        "architecture": "The plugin is developed in TypeScript on Node.js 24, adhering to Paseo Provider Protocol v1. It manages the full lifecycle of agy subprocesses, serializing turns into NDJSON and streaming JSON events back to Paseo. Out-of-band events like question prompts and subagent spawns are tracked via conversation transcripts, while a dedicated React client screen provides account quota management.",
+        "stack": {
+          "runtime": "Node.js 24, TypeScript, Paseo Provider Protocol v1",
+          "agentCore": "Google Antigravity CLI (agy), NDJSON stream-json protocol, Child Process IPC",
+          "uiClient": "Paseo Client Extension (React/TypeScript), Tailwind CSS"
+        },
+        "devExperience": "Designed with resilience in mind, the plugin features robust process recovery, graceful signal termination, and comprehensive logging. Compatibility across npm and GitHub installation sources makes deploying and updating the plugin frictionless for Paseo users.",
+        "outcome": "Paseo Antigravity CLI bridges the gap between Google's CLI-based coding agent and desktop IDE ergonomics. It gives developers complete visual oversight of complex agent workflows, plan validations, and subagent collaboration.",
+        "cta": "Install the plugin via Paseo's plugin manager or visit the GitHub repository to view the full source code and documentation."
       }
     }
   }

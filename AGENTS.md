@@ -5,6 +5,9 @@
 - This repository hosts a personal portfolio built with Astro.
 - The portfolio showcases both technical and literary achievements of Lefteris Evangelinos, a full-stack developer and published fantasy author.
 - Featured projects include:
+  - **OmniSSH** – High-performance, privacy-first desktop workspace for SSH terminals, SFTP/SCP dual-pane file management, S3 cloud storage, and multi-source connection imports built with Tauri v2, Rust, and React 19.
+  - **Token Optimizer** – Intelligent MCP server that compresses verbose build, lint, and test diagnostics into compact, actionable verdicts for AI coding agents, slashing context token consumption.
+  - **Paseo Plugin Antigravity CLI** – Paseo provider plugin integrating Google's official Antigravity CLI (`agy`) over NDJSON streaming, enabling subagent orchestration, plan mode, interactive questions, and quota management.
   - **NestJS Backend Template** – Production-ready NestJS template with JWT authentication, Swagger documentation, Prometheus metrics, Sentry error tracking, and comprehensive security features demonstrating modern backend architecture patterns.
   - **Share the Ride** – Node.js + Express backend delivering REST and Socket.IO APIs for a carpooling platform.
   - **ERT Game Web** – Full-stack multiplayer game application with Express.js backend and Vue 3 + TypeScript frontend, featuring real-time gameplay and admin controls.
