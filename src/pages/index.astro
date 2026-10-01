@@ -1,19 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE, BASE_URI } from "../consts";
 import content from "../content.json";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main class="home">
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="home">
       <section class="hero">
         <div class="hero-content">
           <div class="avatar-container">
@@ -99,10 +91,8 @@ import content from "../content.json";
         </p>
         <a href={`${BASE_URI}/about`} class="btn btn-primary">Get in Touch</a>
       </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+  </div>
+</BaseLayout>
 
 <style>
   .home {

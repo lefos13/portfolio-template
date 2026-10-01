@@ -1,6 +1,6 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
+import "@fontsource-variable/inter";
+import "@fontsource-variable/literata";
 import "../styles/global.css";
 import type { ImageMetadata } from "astro";
 import { SITE_TITLE, BASE_URI, OG_IMAGE } from "../consts";
@@ -24,31 +24,17 @@ const imageUrl = image.startsWith("http")
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" type="image/svg+xml" href={`${BASE_URI}/favicon.svg`} />
+<link rel="sitemap" href={`${BASE_URI}/sitemap-index.xml`} />
 <link
   rel="alternate"
   type="application/rss+xml"
   title={SITE_TITLE}
-  href={new URL("rss.xml", Astro.site)}
+  href={new URL(`${BASE_URI}/rss.xml`, Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font preloads -->
-<link
-  rel="preload"
-  href={`${BASE_URI}/fonts/atkinson-regular.woff`}
-  as="font"
-  type="font/woff"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href={`${BASE_URI}/fonts/atkinson-bold.woff`}
-  as="font"
-  type="font/woff"
-  crossorigin
-/>
+<meta name="theme-color" content="#0c0e13" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
